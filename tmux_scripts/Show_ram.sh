@@ -5,4 +5,4 @@
 Total_Mem=3848
 Mem_free=$(free -m | grep "Mem" | awk '{ print$3 }')
 result=$(echo "scale=1; 100*($Mem_free)/$Total_Mem" | bc -l)
-echo "$result%Free"
+echo "$result%used"
