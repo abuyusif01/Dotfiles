@@ -30,7 +30,7 @@ setw() {
    local option=$1
    local value=$2
    tmux set-window-option -gq "$option" "$value"
-}
+} 
 
 set "message-fg" "$onedark_white"
 set "message-bg" "$onedark_black"
