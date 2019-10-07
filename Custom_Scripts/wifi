@@ -1,0 +1,23 @@
+#!/bin/bash
+
+nmcli connection show
+Uia=$(nmcli connection | grep -i iium-student | awk '{print $1}')
+read -p "Enter UUID: " wifi_uuid
+if [ $wifi_uuid  == 1 ]; then 
+	UUID=$(nmcli connection show | awk '{ print$2 }' | head -n 3 | tail -n 2 | head -n 2)
+		if [ $Uia == IIUM-Student ]; then 
+			nmcli connectio up uuid $UUID
+		else 
+			nmcli --ask connection up uuid $UUID
+		fi
+elif [ $wifi_uuid == 2 ]; then 
+        UUID=$(nmcli connection show | awk '{ print$2 }' | head -n 3 | tail -n 2 | tail -n 1)
+	if [ $Uia == IIUM-Student ]; then 
+	        nmcli connectio up uuid $UUID
+        else   
+                nmcli --ask connection up uuid $UUID
+        fi
+
+else 
+	echo "Invalid input"
+fi
