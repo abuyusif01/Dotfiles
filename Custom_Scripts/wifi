@@ -1,5 +1,5 @@
 #!/bin/bash
-
+###########
 nmcli connection show
 Uia=$(nmcli connection | grep -i iium-student | awk '{print $1}')
 read -p "Enter UUID: " wifi_uuid
