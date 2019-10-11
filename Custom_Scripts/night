@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Only for night in the room or something like that.
+
+if [ -z $1 ]; then 
+	echo 10 | sudo tee /sys/class/backlight/intel_backlight/brightness
+elif [ $1 -lt 93 ]; then 
+	let light=$(expr $1 \* 10)
+	echo $light | sudo tee /sys/class/backlight/intel_backlight/brightness
+else 
+	echo "Motherfucker invalid"
+fi
