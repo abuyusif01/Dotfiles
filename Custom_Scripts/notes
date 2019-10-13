@@ -1,5 +1,6 @@
 #!/bin/bash
 
+current_date=$(date | awk '{print$2" "$3}')
 
 if [ -z $1 ]; then
 	read -p "What you want me todo: " input
@@ -7,23 +8,11 @@ if [ -z $1 ]; then
 		cd ~; cd Notes; ls
 	elif [ $input == today ]; then
 		cd ~; cd Notes;
-		current_date=$(date | awk '{print$2" "$3}')
-		no_files=$(ls -ltu | awk '{print$7" "$6}' | grep "$current_date" | wc -l)
-		current_date=$(date | awk '{print$2" "$3}')
-                #file_date=$(ls -ltu | awk '{print$6" "$7}')
-		#current_date=$(date | awk '{print$2" "$3}')
-		for (( i; i<=$no_files; i++ )); do
-			file_name=$(ls -lt | awk '{print$9}' | head -n $i)
-			arr_files=([$i]=$file_name)
-		done
-                for (( j; j<=$no_files; j++ )); do
-			check=$(cat ${arr_files[$j]} | tail -n 1)
-			if [ $check == "done" ]; then
-				#echo "${arr_files[$j] done"	
-#		done
+		file_name=$(ls -lt | awk '{print$9}' | grep $current_date)
+		echo $file_name
+
 	fi
-#fi
-#if [ ! -z $1 ]; then
-#nano ~/Notes/"$1".tt 
-#fi
-# ls -c ~/Notes/ | grep "$*"
+fi
+if [ ! -z $1 ]; then
+nano ~/Notes/"$1".tt 
+fi
