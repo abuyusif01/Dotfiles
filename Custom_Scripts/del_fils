@@ -1,0 +1,3 @@
+cat file_name.txt | while read file; do 
+	#do something with variable $file
+done
