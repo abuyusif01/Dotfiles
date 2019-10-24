@@ -30,7 +30,14 @@ alias update='yay -Syu'							#
 alias orphan='yay -Rd $(yay -Qtdq)'					#
 alias space='yay -Scc'							#
 									#
+#Ease life								#
+alias ..='cd ..'							#
+alias ...='cd ../..'							#
+alias home='cd'								#
+									#
+#Studies								#
+alias study='cd /home/blackdracula/Notes/Sem'				#
+									#
 ##############################ALIAS######################################
 
 PS1='[\u@\h \W]\$ '
-
