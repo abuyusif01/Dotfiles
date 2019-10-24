@@ -3,17 +3,20 @@
 # set root pointer
 xsetroot -cursor_name left_ptr
 
+# try to start termite in the first place 
+termite &
+
 # key bindings
 sxhkd &
 
 # wallpaper
-nitrogen --restore &
+#nitrogen --restore &
 
 # xfce settings
 xfsettingsd &
 
 # compton
-compton -C -b
+#compton -C -b
 
 # panel
 polybar main &
@@ -25,10 +28,10 @@ polybar main &
 redshift -t 6500:4600 -l 3.2476811:101.74012689999999 &
 
 # rofi greenclipboard daemon 
-greenclip daemon &
+#greenclip daemon &
 
 # Set some bsp specific stuff
-bspc monitor -d · · · · · · · ·
+bspc monitor -d I II III IV V VI VII VIII IX X
 
 bspc config border_width 0
 bspc config window_gap 3
@@ -57,3 +60,4 @@ bspc rule -a feh state=floating follow=on
 
 
 xmodmap -e 'keycode 117='
+
