@@ -12,6 +12,8 @@ alias grep='grep --color=auto'						#
 									#
 #Daily alias								#
 alias clip='xclip -selection clipboard'					#
+alias scan='nmcli d wifi rescan'					#
+alias show='nmcli d wifi list'						#
 									#
 #Git alias								#
 alias gs='git status'							#
