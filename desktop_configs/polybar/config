@@ -1,17 +1,3 @@
-;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
-;;
-;;	    ____        __      __              
-;;	   / __ \____  / /_  __/ /_  ____ ______
-;;	  / /_/ / __ \/ / / / / __ \/ __ `/ ___/
-;;	 / ____/ /_/ / / /_/ / /_/ / /_/ / /    
-;;	/_/    \____/_/\__, /_.___/\__,_/_/     
-;;	              /____/                    
-;;
-;; Created By Aditya Shakya @adi1090x
-;; 
-;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
-
-;;;;;;;;;;;;;
 ;; Colors ;;
 ;;;;;;;;;;;;;
 
@@ -155,10 +141,10 @@ pin-workspaces = true
 enable-click = true
 enable-scroll = true
 
-label-focused = 
-label-occupied = 
-label-urgent = 
-label-empty = 
+label-focused =" "
+label-occupied =" "
+label-urgent =" "
+label-empty =" "
 
 format = <label-state>
 format-background = ${color.shade1}
@@ -188,17 +174,17 @@ format-volume-padding = 1
 
 label-volume = %percentage%%
 
-format-muted-prefix = 
+format-muted-prefix=" "
 label-muted = " Muted"
 format-muted-background = ${color.bground}
 format-muted-foreground = ${color.modulefg}
 format-muted-padding = 1
 
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
-ramp-volume-3 = 
-ramp-volume-4 = 
+ramp-volume-0 =" "
+ramp-volume-1 =" "
+ramp-volume-2 =" "
+ramp-volume-3 =" "
+ramp-volume-4 =" "
 
 ;;;;;;;;;;;;;;;
 ;; Backlight ;;
@@ -211,7 +197,7 @@ interval = 0.2
 exec = ~/bin/light.sh
 scroll-up = exec light -A 5
 scroll-down = exec light -U 5
-format-prefix = " "
+format-prefix = " "
 label = %output%
 format-background = ${color.bground}
 format-foreground = ${color.modulefg}
@@ -250,26 +236,26 @@ label-full-background = ${color.bground}
 label-full-foreground = ${color.modulefg}
 label-full-padding = 1
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-ramp-capacity-5 = 
-ramp-capacity-6 = 
-ramp-capacity-7 = 
-ramp-capacity-8 = 
-ramp-capacity-9 = 
+ramp-capacity-0 =" "
+ramp-capacity-1 =" "
+ramp-capacity-2 =" "
+ramp-capacity-3 =" "
+ramp-capacity-4 =" "
+ramp-capacity-5 =" "
+ramp-capacity-6 =" "
+ramp-capacity-7 =" "
+ramp-capacity-8 =" "
+ramp-capacity-9 =" "
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-5 = 
-animation-charging-6 = 
-animation-charging-7 = 
-animation-charging-8 = 
+animation-charging-0 =" "
+animation-charging-1 =" "
+animation-charging-2 =" "
+animation-charging-3 =" "
+animation-charging-4 =" "
+animation-charging-5 =" "
+animation-charging-6 =" "
+animation-charging-7 =" "
+animation-charging-8 =" "
 animation-charging-framerate = 750
 
 ;;;;;;;;;;;;;
@@ -280,8 +266,8 @@ animation-charging-framerate = 750
 type = internal/date
 interval = 1.0
 
-time =  %I:%M %p
-time-alt =  %d/%m/%Y%
+time = %I:%M %p
+time-alt = %d/%m/%Y%
 
 format = <label>
 format-background = ${color.bground}
@@ -295,8 +281,8 @@ label = %time%
 
 [module/lang]
 type = custom/script
-exec = ~/bin/lang.sh
-format-prefix = "  "
+exec = ~/bin/weather.sh
+format-prefix = " "
 interval = 0.1
 label-font = 1
 format-background = ${color.bground}
@@ -342,13 +328,13 @@ type = custom/text
 content-font = 0
 content-background = ${color.bground}
 content-foreground = ${color.shade1}
-content = "%{T3}%{T-}"
+content = "%{T3}%{T-}"
 
 [module/left2]
 type = custom/text
 content-background = ${color.bground}
 content-foreground = ${color.shade2}
-content = "%{T3}%{T-}"
+content = "%{T3}%{T-}"
 
 #+++++++++++++++++++++++++++++++++++++++
 
@@ -356,40 +342,40 @@ content = "%{T3}%{T-}"
 type = custom/text
 content-background = ${color.shade2}
 content-foreground = ${color.shade1}
-content = "%{T3}%{T-}"
+content = "%{T3}%{T-}"
 
 [module/right2]
 type = custom/text
 content-background = ${color.shade3}
 content-foreground = ${color.shade2}
-content = "%{T3}%{T-}"
+content = "%{T3}%{T-}"
 
 [module/right3]
 type = custom/text
 content-background = ${color.shade4}
 content-foreground = ${color.shade3}
-content = "%{T3}%{T-}"
+content = "%{T3}%{T-}"
 
 [module/right4]
 type = custom/text
 content-background = ${color.shade5}
 content-foreground = ${color.shade4}
-content = "%{T3}%{T-}"
+content = "%{T3}%{T-}"
 
 [module/right5]
 type = custom/text
 content-background = ${color.shade6}
 content-foreground = ${color.shade5}
-content = "%{T3}%{T-}"
+content = "%{T3}%{T-}"
 
 [module/right6]
 type = custom/text
 content-background = ${color.shade7}
 content-foreground = ${color.shade6}
-content = "%{T3}%{T-}"
+content = "%{T3}%{T-}"
 
 [module/right7]
 type = custom/text
 content-background = ${color.trans}
 content-foreground = ${color.shade7}
-content = "%{T3}%{T-}"
+content = "%{T3}%{T-}"
