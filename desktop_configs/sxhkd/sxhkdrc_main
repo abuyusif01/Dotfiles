@@ -17,6 +17,30 @@ super + @space
 super + shift + r
     pkill -USR1 -x sxhkd
 
+#spotify next 
+super + ctrl + Right
+    sp next
+
+#spotify prev
+super + ctrl + Left
+    sp prev
+
+#spotify pause
+#super + Home
+#   sp pause
+
+#spotify play
+super + Home
+    sp play
+
+#system volume increase with 10%
+super + ctrl + Up
+    pactl -- set-sink-volume 0 +10%
+
+#system volume decrease with 10%
+super + ctrl + Down
+    pactl -- set-sink-volume 0 -10%
+
 # quit bspwm normally
 super + x
     rofi_run -l	
@@ -26,7 +50,7 @@ super + {_,shift + }q
     bspc node -{c,k}
 
 # alternate between the tiled and monocle layout
-super + shift + m
+super + shift + z
     bspc desktop -l next
 
 # if the current node is automatic, send it to the last manual, otherwise pull the last leaf
@@ -42,7 +66,7 @@ super + g
 #
 
 # set the window state
-super + alt + {t,shift + t,s,f}
+super + shift + {t,shift + t,s,f}
     bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
@@ -119,31 +143,13 @@ ctrl + alt + {h,j,k,l}
 super + {Left,Down,Up,Right}
     bspc node -v {-20 0,0 20,0 -20,20 0}
 
-# volume control keys
-XF86AudioMute
-    pamixer -t
-XF86AudioRaiseVolume
-    pamixer -i 2
-XF86AudioLowerVolume
-    pamixer -d 2
-XF86MonBrightnessUp
-    light -A 10
-XF86MonBrightnessDown
-    light -U 10
-XF86AudioNext
-    sp next
-XF86AudioPrev
-    sp prev
-XF86AudioPlay
-    sp play
-
 # flameshot full screen
 Print
-    flameshot full -p /run/media/Dark-Files/Screenshots
+    flameshot full -p /home/blackdracula/Screenshots/
 
 # flameshot gui
 Print + shift
-    flameshot gui -p /run/media/Dark-Files/Screenshots
+    flameshot gui -p /home/blackdracula/Screenshots/clip
 
 #rofi green cipboard
 super + v
