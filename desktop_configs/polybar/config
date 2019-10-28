@@ -141,11 +141,6 @@ pin-workspaces = true
 enable-click = true
 enable-scroll = true
 
-label-focused =" "
-label-occupied =" "
-label-urgent =" "
-label-empty =" "
-
 format = <label-state>
 format-background = ${color.shade1}
 format-foreground = ${color.shade1}
