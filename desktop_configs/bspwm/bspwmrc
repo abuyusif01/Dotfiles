@@ -10,13 +10,13 @@ termite &
 sxhkd &
 
 # wallpaper
-#nitrogen --restore &
+wallpaper &
 
 # xfce settings
 xfsettingsd &
 
 # compton
-#compton -C -b
+compton -C -b
 
 # panel
 polybar main &
