@@ -25,13 +25,13 @@ super + ctrl + Right
 super + ctrl + Left
     sp prev
 
-#spotify pause
-#super + Home
-#   sp pause
-
 #spotify play
 super + Home
     sp play
+
+#systemctl suspend
+super + Delete
+    systemctl suspend
 
 #system volume increase with 10%
 super + ctrl + Up
