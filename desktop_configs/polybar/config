@@ -16,6 +16,8 @@ shade8 = #90CAF9
 
 ;; Active Colors
 bground = #0f111a
+;;bground = #aa2F343F
+
 fground = #f7f7f7
 accent = #31323a
 modulefg = #f7f7f7
@@ -65,7 +67,7 @@ compositing-overline = over
 compositing-underline = over
 compositing-border = over
 
-pseudo-transparency = false
+pseudo-transparency = true
 
 ;;;;;;;;;;;;;
 ;;   Bar   ;;
