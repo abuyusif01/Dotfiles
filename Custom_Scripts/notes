@@ -16,3 +16,4 @@ fi
 if [ ! -z $1 ]; then
 nano ~/Notes/"$1".tt 
 fi
+#Still nothing new 
