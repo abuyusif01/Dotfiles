@@ -47,8 +47,19 @@ alias ls="alias ls=lsd && ls"
 alias clip='xclip -selection clipboard'
 alias zsh="exec zsh"
 alias n="nvim"
-alias home="cd"
+alias home="cd; clear"
 alias suspend="systemctl suspend"
+alias C="cd; cd C_C++/C; ls"
+alias Cp="cd; cd C_C++/C++; ls"
+alias scan="nmcli d wifi rescan"
+alias list="nmcli d wifi list"
+alias study="cd;cd Sem && ranger"
+alias jfx="javafx11-scenebuilder"
+alias gcc="g++"
+alias rm -rf / =echo biatch
+alias sudo rm -rf /* =echo fuck you
+alias clean_history="cd; cat /dev/null >! .zhistory"
+alias tmux="tmux -u"
 
 #packages aliases.
 alias remove="yay -Rs"
@@ -68,9 +79,11 @@ alias gd="git diff"
 alias gpush="git push origin master"
 alias gpull="git pull origin master"
 
-#export variables
-export PATH=$PATH:/home/blackdracula/ICPC/Practice
+#export PATH 
 export PATH=$PATH:/home/blackdracula/bin
+
+#fuck intellij-idea
+wmname compiz
 
 #some fancy stuff
 ufetch
