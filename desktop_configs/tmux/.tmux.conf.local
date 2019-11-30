@@ -33,7 +33,7 @@ tmux_conf_theme_highlight_focused_pane=false
 
 # focused pane colours:
 tmux_conf_theme_focused_pane_fg='default'
-tmux_conf_theme_focused_pane_bg='#002b36col'            
+tmux_conf_theme_focused_pane_bg='#002b36col'
 
 # pane border style, possible values are:
 #   - thin (default)
@@ -41,7 +41,7 @@ tmux_conf_theme_focused_pane_bg='#002b36col'
 tmux_conf_theme_pane_border_style=thin
 
 # pane borders colours:
-tmux_conf_theme_pane_border='#839491'                   
+tmux_conf_theme_pane_border='#839491'
 tmux_conf_theme_pane_active_border='#34575c'
 
 # pane indicator colours
@@ -166,4 +166,4 @@ set -g mouse on
 unbind C-b
 set -g prefix C-z
 bind C-z send-prefix
-bind-key -T prefix q kill-pane
+ind-key -T prefix q kill-pane
