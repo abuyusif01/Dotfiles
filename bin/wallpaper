@@ -1,0 +1,6 @@
+#!/bin/bash
+
+while true; do
+feh --randomize --bg-fill /home/blackdracula/.wallpaper/*
+sleep 1h
+done
