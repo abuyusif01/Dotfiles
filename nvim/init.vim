@@ -248,7 +248,13 @@ let g:auto_save_silent = 1
 " rainbow brackets
 let g:rainbow_active = 1
 
-
+" Bullets.vim
+let g:bullets_enabled_file_types = [
+    \ 'markdown',
+    \ 'text',
+    \ 'gitcommit',
+    \ 'scratch'
+    \]
 " ======================== Filetype-Specific Configurations ============================= "
 
 
