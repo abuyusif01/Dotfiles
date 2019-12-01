@@ -385,3 +385,6 @@ map <leader>/ :Ag<CR>
 
 " carbon sh now
 vnoremap <F8> :CarbonNowSh<CR>
+
+" dot abbreviation
+iabbrev ** •
