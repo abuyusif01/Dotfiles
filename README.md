@@ -12,16 +12,15 @@
 > - FuraCode
 > - Font Awesome
 > - Ubuntu Family
-> - Colors: thanks to [oceanic](https://github.com/material-ocean) colors
 
 
 ## **Installation**
 
-- Clone and install 🙃
+- Clone and configure 🙃
 
 ## **Screenshot**
 
-> - Colors: [material ocean](https://github.com/material-ocean)
+> - Colors: Thanks to [material ocean](https://github.com/material-ocean)
 > - Bar: Polybar
 > - System Info: ufetch
 > - Text editor : neovim
