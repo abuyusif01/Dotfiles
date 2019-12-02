@@ -1,13 +1,13 @@
 # web browser
 super + w
-    exo-open --launch WebBrowser
+    brave
 
 super + Return
-    exo-open --launch TerminalEmulator
+    kitty
 
 # file manager
 super + f
-    exo-open --launch FileManager
+    thunar
 
 # program launcher
 super + @space
@@ -17,7 +17,7 @@ super + @space
 super + shift + r
     pkill -USR1 -x sxhkd
 
-#spotify next 
+#spotify next
 super + ctrl + l
     sp next
 
@@ -130,7 +130,7 @@ super + ctrl + space
 # cancel the preselection for the focused desktop
 super + ctrl + shift + space
     bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
-    
+
 #
 # move/resize
 #
@@ -167,6 +167,6 @@ super + v
 super + s
     spotify --disable-gpu
 
-# 
+#
 super + n
     notable
