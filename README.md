@@ -1,7 +1,12 @@
 ## Requirements
+
  - *NIX
+ - Scripts from [this](https://github.com/Blacksuan19/Dotfiles/tree/master/bin/bin) repo
+ - fonts: FuraCode, Hack, And SansMono
+ - Colors: thanks to [oceanic](github.com/material-ocean) colors
+
 
 ## Installation
-### clone repo and install manually [this](https://github.com/blackdracula18/Dotfiles.git)
+- Clone and install
 
-All dot configurations of mine and some changes from others
+## Screenshot
