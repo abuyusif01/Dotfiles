@@ -28,4 +28,4 @@
 > - Text editor: neovim
 > - Vim configs:Credits goes to [blacksuan19](@blacksuan19)
 
-![alt text](https://github.com/blackdracula18/Dotfiles/blob/master/Screenshot/2019-12-02_15-16.png)
+![alt text](hhttps://raw.githubusercontent.com/blackdracula18/Dotfiles/master/Screenshot/2019-12-02_15-16.png)
