@@ -4,7 +4,7 @@
 xsetroot -cursor_name left_ptr
 
 # try to start termite in the first place
-termite &
+kitty &
 
 # key bindings
 sxhkd &
@@ -61,6 +61,3 @@ bspc rule -a Brave-browser desktop='^2' follow=on focus=on
 bspc rule -a Spotify desktop='^8' follow=on focus=on
 bspc rule -a feh state=floating follow=on
 bspc rule -a vlc desktop='^0'
-
-
-xmodmap -e 'keycode 117='
