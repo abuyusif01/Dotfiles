@@ -26,6 +26,6 @@
 > - Bar: Polybar
 > - System Info: ufetch
 > - Text editor: neovim
-> - Vim configs: Credits goes to [this](@blacksuan19) nibba
+> - Vim configs: Credits goes to [this](https://github.com/blacksuan19) nibba
 
 ![alt text](https://raw.githubusercontent.com/blackdracula18/Dotfiles/master/Screenshot/2019-12-02_15-16.png)
