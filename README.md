@@ -12,6 +12,8 @@
 > - FuraCode
 > - Font Awesome
 > - Ubuntu Family
+> - Hack
+> - Sans Mono
 
 
 ## **Installation**
@@ -23,6 +25,7 @@
 > - Colors: Thanks to [material ocean](https://github.com/material-ocean)
 > - Bar: Polybar
 > - System Info: ufetch
-> - Text editor : neovim
+> - Text editor: neovim
+> - Vim configs:Credits goes to [blacksuan19](@blacksuan19)
 
 ![alt text](https://i.redd.it/se2r607d10241.png)
