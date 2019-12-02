@@ -25,4 +25,4 @@
 > - System Info: ufetch
 > - Text editor : neovim
 
-![alt text](https://i.redd.it/se2r607d10241.png)
+![alt text]()
