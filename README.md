@@ -3,7 +3,7 @@
  - *NIX
  - Scripts from [this](https://github.com/Blacksuan19/Dotfiles/tree/master/bin/bin) repo
  - fonts: FuraCode, Hack, And SansMono
- - Colors: thanks to [oceanic](github.com/material-ocean) colors
+ - Colors: thanks to [oceanic](https://github.com/material-ocean) colors
 
 
 ## Installation
