@@ -3,7 +3,7 @@
 > - *NIX
 > - Zsh
 > - prezto
-> - tmux version 2.2
+> - tmux <= version 2.2
 > - Scripts from [this](https://github.com/Blacksuan19/Dotfiles/tree/master/bin/bin) repo
 
 
@@ -26,6 +26,6 @@
 > - Bar: Polybar
 > - System Info: ufetch
 > - Text editor: neovim
-> - Vim configs:Credits goes to [blacksuan19](@blacksuan19)
+> - Vim configs: Credits goes to [this](@blacksuan19) nibba
 
 ![alt text](https://raw.githubusercontent.com/blackdracula18/Dotfiles/master/Screenshot/2019-12-02_15-16.png)
