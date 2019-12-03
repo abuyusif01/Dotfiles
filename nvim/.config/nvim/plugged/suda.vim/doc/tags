@@ -1,0 +1,15 @@
+g:suda#prefix	suda.txt	/*g:suda#prefix*
+g:suda_smart_edit	suda.txt	/*g:suda_smart_edit*
+g:suda_startup	suda.txt	/*g:suda_startup*
+suda	suda.txt	/*suda*
+suda#init()	suda.txt	/*suda#init()*
+suda#read()	suda.txt	/*suda#read()*
+suda#write()	suda.txt	/*suda#write()*
+suda-contents	suda.txt	/*suda-contents*
+suda-functions	suda.txt	/*suda-functions*
+suda-interface	suda.txt	/*suda-interface*
+suda-introduction	suda.txt	/*suda-introduction*
+suda-questions	suda.txt	/*suda-questions*
+suda-usage	suda.txt	/*suda-usage*
+suda-variables	suda.txt	/*suda-variables*
+suda.txt	suda.txt	/*suda.txt*
