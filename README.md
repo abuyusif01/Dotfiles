@@ -28,5 +28,5 @@
 > - Text editor: neovim
 > - Vim configs: Credits goes to [this](https://github.com/blacksuan19) nibba
 
-![alt text](https://raw.githubusercontent.com/blackdracula18/Dotfiles/master/Screenshot/2019-12-02_15-16.png)
+![alt text](https://i.redd.it/se2r607d10241.png)
 
