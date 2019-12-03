@@ -18,7 +18,8 @@
 
 ## **Installation**
 
-- Clone and configure 🙃
+- clone this repo
+- stow * 🙃
 
 ## **Screenshot**
 
