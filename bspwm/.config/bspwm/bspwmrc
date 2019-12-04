@@ -4,7 +4,7 @@
 xsetroot -cursor_name left_ptr
 
 # try to start termite in the first place
-termite &
+kitty &
 
 # key bindings
 sxhkd &
@@ -15,14 +15,17 @@ wallpaper &
 # xfce settings
 xfsettingsd &
 
-# compton
-compton -C -b
+# picom
+picom -C -b
 
 # panel
 polybar main &
 
 #dunst
 dunst &
+
+#flameshot
+flameshot &
 
 # start libinput-gestures
 #libinput-gestures-setup start
