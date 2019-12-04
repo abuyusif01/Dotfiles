@@ -15,8 +15,6 @@
 > - Hack
 > - Sans Mono
 
- [x] done
-
 
 ## **Installation**
 
