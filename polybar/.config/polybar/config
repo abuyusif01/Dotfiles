@@ -29,7 +29,7 @@ modules-right = Playing battery volume backlight eth date poweroff
 [module/date]
 type = internal/date
 interval = 1.0
-time = %H: %M 
+time = %H: %M
 time-alt = %a %d %b
 label ="%time%"
 label-alt =
@@ -39,7 +39,7 @@ format-padding = 1
 
 [module/backlight]
 type = custom/script
-exec = ~/bin/light.sh
+exec = ~/.config/bin/light.sh
 scroll-up = exec light -A 5
 scroll-down = exec light -U 5
 format-prefix = " "
@@ -72,7 +72,7 @@ ramp-volume-2 = 
 
 [module/poweroff]
 type = custom/script
-exec = ~/bin/arch.sh
+exec = ~/.config/bin/arch.sh
 ;format-prefix = "  "
 ;format-prefix = "FF"
 click-left = rofi -modi run,drun,window -show drun
@@ -125,7 +125,7 @@ label-empty-padding = 1
 
 [module/Playing]
 type = custom/script
-exec = ~/bin/playing.sh
+exec = ~/.config/bin/playing.sh
 format-prefix = " "
 interval = 0.1
 label-font = 0
