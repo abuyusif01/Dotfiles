@@ -65,5 +65,5 @@ bspc rule -a Spotify desktop='^8' follow=on focus=on
 bspc rule -a feh state=floating follow=on
 bspc rule -a vlc desktop='^0'
 
-
+#some dumbshit i have no idea wtfk is this
 xmodmap -e 'keycode 117='
