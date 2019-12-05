@@ -1,48 +1,4 @@
-# systemd aliases.
- user_commands=(
-  list-units is-active status show help list-unit-files
-  is-enabled list-jobs show-environment cat list-timers)
-
-sudo_commands=(
-  start stop reload restart try-restart isolate kill
-  reset-failed enable disable reenable preset mask unmask
-  link load cancel set-environment unset-environment
-  edit)
-
-for c in $user_commands; do; alias sc-$c="systemctl $c"; done
-for c in $sudo_commands; do; alias sc-$c="sudo systemctl $c"; done
-
-alias sc-enable-now="sc-enable --now"
-alias sc-disable-now="sc-disable --now"
-alias sc-mask-now="sc-mask --now"
-
-# double press Esc to add sudo.
-sudo-command-line() {
-    [[ -z $BUFFER ]] && zle up-history
-    if [[ $BUFFER == sudo\ * ]]; then
-        LBUFFER="${LBUFFER#sudo }"
-    elif [[ $BUFFER == $EDITOR\ * ]]; then
-        LBUFFER="${LBUFFER#$EDITOR }"
-        LBUFFER="sudoedit $LBUFFER"
-    elif [[ $BUFFER == sudoedit\ * ]]; then
-        LBUFFER="${LBUFFER#sudoedit }"
-        LBUFFER="$EDITOR $LBUFFER"
-    else
-        LBUFFER="sudo $LBUFFER"
-    fi
-}
-zle -N sudo-command-line
-bindkey "\e\e" sudo-command-line
-
-tmux set -g status-right "#(echo \\\\(test\\\\))"
-tmux set -g status-bg \#0f111a
-
-#determines search program for fzf
-if type ag &> /dev/null; then
-    export FZF_DEFAULT_COMMAND='ag --hidden -p ~/.fignore -g ""'
-fi
-
-# various aliases.
+# alias to easy my laziness life
 alias free="free -h"
 alias network="sc-restart NetworkManager"
 alias blame="systemd-analyze && systemd-analyze blame"
@@ -92,10 +48,11 @@ export LC_ALL=en_US.UTF-8
 export EDITOR=nvim
 
 #fuck intellij-idea
-wmname compiz
+wmname compiz # this supposed to be at startup
 
 #nice looking shit
 ufetch
-sleep 0.2
-#have no idea wtf is this not working well
+sleep 0.1
+
+#have no idea wtfk this shit not working well
 tmux source ~/Dotfiles/tmux/.config/tmux/.tmux.conf
