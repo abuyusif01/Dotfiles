@@ -48,7 +48,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'                                " fuzzy search integration
 
 " snippets
-Plug 'SirVer/ultisnips'
+"Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'                               " actual snippets
 
 " visual
@@ -100,7 +100,7 @@ set title                                               " tab title as file file
 set conceallevel=2                                      " set this so we womt break indentation plugin
 set splitright                                          " open vertical split to the right
 set splitbelow                                          " open horizontal split to the bottom
-set tw=80                                               " auto wrap lines that are longer than that
+set tw=10                                               " auto wrap lines that are longer than that
 set emoji                                               " enable emojis
 let g:indentLine_setConceal = 0                         " actually fix the annoying markdown links conversion
 au BufEnter * set fo-=c fo-=r fo-=o                     " stop annying auto commenting on new lines
@@ -161,26 +161,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'        " show only file name on tabs
 let g:airline#extensions#ale#enabled = 1                " ALE integration
 
-" coc
-" use tab for completion trigger
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
-
-" remap coc compilition
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-let g:coc_snippet_next = '<Tab>'
-
 " list of the extensions required
 let g:coc_global_extensions = [
             \'coc-yank',
@@ -194,7 +174,6 @@ let g:coc_global_extensions = [
             \'coc-yaml',
             \'coc-lists',
             \'coc-snippets',
-            \'coc-ultisnips',
             \'coc-python',
             \'coc-xml',
             \'coc-word',
@@ -372,12 +351,19 @@ nmap <silent> <C-c> <Plug>(coc-cursors-position)
 nmap <silent> <C-a> <Plug>(coc-cursors-word)
 xmap <silent> <C-a> <Plug>(coc-cursors-range)
 
-" new line in normal mode and back
-"map <Enter> o<ESC>
-"map <S-Enter> O<ESC>
-
-" for project wide search
+"for project wide search
 map <leader>/ :Ag<CR>
 
 " carbon sh now
 vnoremap <F8> :CarbonNowSh<CR>
+
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
