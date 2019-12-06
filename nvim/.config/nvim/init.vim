@@ -1,4 +1,3 @@
-
 " ============= Vim-Plug ============== "
 
 let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
@@ -164,20 +163,23 @@ let g:airline#extensions#ale#enabled = 1                " ALE integration
 
 " coc
 " use tab for completion trigger
-inoremap <silent><expr> <TAB>
+inoremap <silent><expr> <Tab>
       \ pumvisible() ? "\<C-n>" :
       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
 
+" remap coc compilition
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-let g:coc_snippet_next = '<tab>'
+let g:coc_snippet_next = '<Tab>'
 
 " list of the extensions required
 let g:coc_global_extensions = [
@@ -371,8 +373,8 @@ nmap <silent> <C-a> <Plug>(coc-cursors-word)
 xmap <silent> <C-a> <Plug>(coc-cursors-range)
 
 " new line in normal mode and back
-map <Enter> o<ESC>
-map <S-Enter> O<ESC>
+"map <Enter> o<ESC>
+"map <S-Enter> O<ESC>
 
 " for project wide search
 map <leader>/ :Ag<CR>
