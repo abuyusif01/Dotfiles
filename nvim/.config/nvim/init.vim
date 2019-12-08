@@ -17,7 +17,6 @@ Plug 'prettier/vim-prettier', {
   \ 'for': ['javascript', 'css', 'less', 'scss', 'json',  'markdown',  'yaml', 'html'] }
 
 " markdown
-Plug 'jkramer/vim-checkbox', { 'for': 'markdown' }
 Plug 'dkarter/bullets.vim'                              " markdown bullet lists
 
 " search
@@ -243,7 +242,6 @@ let g:auto_save_in_insert_mode = 0                      " do not save while in i
 let g:auto_save_silent = 1
 
 "checkbox && bullets
-let g:checkbox_states = [' ', 'x']
 let g:bullets_enable_file_type =['*']                   "i enable this shit for all file types
 
 " use <tab> for trigger completion and navigate to the next complete item
