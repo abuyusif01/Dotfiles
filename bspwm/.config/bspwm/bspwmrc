@@ -27,6 +27,9 @@ dunst &
 #flameshot
 flameshot &
 
+#clean zsh history with nice format
+$HOME/.config/bin/chistory &
+
 # start libinput-gestures
 #libinput-gestures-setup start
 
