@@ -4,8 +4,8 @@ call plug#begin()
 Plug 'vim-airline/vim-airline'                          " airline status bar
 Plug 'vim-airline/vim-airline-themes'                   " airline themes
 Plug 'ryanoasis/vim-devicons'                           " powerline like icons for NERDTree
-Plug 'junegunn/rainbow_parentheses.vim'                 " rainbow paranthesis
 Plug 'hzchirs/vim-material'                             " material color themes
+Plug 'luochen1990/rainbow'
 
 " ================= Functionalities ================= "
 
@@ -48,6 +48,14 @@ Plug 'tpope/vim-sensible'                               " sensible defaults
 Plug 'lambdalisue/suda.vim'                             " save as sudo
 Plug '907th/vim-auto-save'                              " auto save changes
 Plug 'mhinz/vim-startify'                               " cool start up screen
+Plug 'lambdalisue/suda.vim'                             " save as sudo
+Plug 'tpope/vim-fugitive'                               " git support
+Plug 'tpope/vim-surround'                               " surround stuff with stuff
+Plug 'psliwka/vim-smoothie'                             " some very smooth ass scrolling
+Plug 'farmergreg/vim-lastplace'                         " open files at the last edited place
+Plug 'tpope/vim-eunuch'                                 " run common unix commands inside vim
+Plug 'romainl/vim-cool'                                 " disable hl until another search is performed
+Plug 'wellle/tmux-complete.vim'                         " complete words from a tmux panes
 
 call plug#end()
 
@@ -243,6 +251,8 @@ let g:auto_save_silent = 1
 
 "checkbox && bullets
 let g:bullets_enable_file_type =['*']                   "i enable this shit for all file types
+"rainbow
+let g:rainbow_active = 1
 
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
