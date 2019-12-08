@@ -1,0 +1,4 @@
+#!/bin/bash
+cd;
+sed 's/.*://' .zhistory >> .chistory
+echo done
