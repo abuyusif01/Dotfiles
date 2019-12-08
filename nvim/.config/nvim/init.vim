@@ -145,6 +145,7 @@ nmap <S-Tab> :bprevious<CR>
 noremap <leader>e :PlugInstall<CR>
 noremap <C-q> :q<CR>
 inoremap jj <ESC>
+inoremap xx <ESC>:ToggleCheckbox<CR>
 
 " use a different buffer for dd
 nnoremap d "_d
@@ -250,7 +251,7 @@ let g:auto_save_in_insert_mode = 0                      " do not save while in i
 let g:auto_save_silent = 1
 
 "checkbox && bullets
-let g:bullets_enable_file_type =['*']                   "i enable this shit for all file types
+let g:bullets_enable_file_type =['markdown','text','gitcommit','*']                   "i enable this shit for all file types
 "rainbow
 let g:rainbow_active = 1
 
@@ -264,3 +265,4 @@ inoremap <silent><expr> <Tab>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
+abbrev ** ●
