@@ -1,4 +1,7 @@
 #!/bin/bash
-cd;
-sed 's/.*://' .zhistory >> .chistory
-echo done
+while true
+do
+    cd;
+    sed 's/.*://' .zhistory >> .chistory
+    sleep 20m
+done
