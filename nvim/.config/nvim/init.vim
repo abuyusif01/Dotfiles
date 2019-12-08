@@ -70,7 +70,7 @@ highlight Comment gui=bold                              " bold comments
 highlight Normal gui=none
 highlight NonText guibg=none
 highlight clear SignColumn                              " use number color for sign colum color
-hi Search guibg=orange                                  " search string highlight color
+hi Search guibg=#48576e                                 " search string highlight color
 autocmd ColorScheme * highlight VertSplit cterm=NONE    " split color
 
 " colors for git(especially the gutter)
@@ -129,6 +129,87 @@ let g:airline_section_warning = ''
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'        " show only file name on tabs
 
+" performance tweaks
+set nocursorline
+set nocursorcolumn
+set scrolljump=7
+set lazyredraw
+set synmaxcol=180
+set re=1
+
+" required by coc
+set hidden
+set nobackup
+set nowritebackup
+set cmdheight=1
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
+
+let g:material_style='oceanic'
+set background=dark
+colorscheme vim-material
+let g:airline_theme='material'
+highlight Pmenu guibg='00010a' guifg=white              " popup menu colors
+highlight Comment gui=bold                              " bold comments
+highlight Normal gui=none
+highlight NonText guibg=none
+highlight clear SignColumn                              " use number color for sign colum color
+
+" list of the extensions required
+let g:coc_global_extensions = [
+            \'coc-yank',
+            \'coc-highlight',
+            \'coc-prettier',
+            \'coc-pairs',
+            \'coc-json',
+            \'coc-css',
+            \'coc-html',
+            \'coc-tsserver',
+            \'coc-yaml',
+            \'coc-lists',
+            \'coc-snippets',
+            \'coc-python',
+            \'coc-xml',
+            \'coc-word',
+            \'coc-syntax',
+            \'coc-emoji',
+            \'coc-git',
+            \]
+" ALE
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'c' : ['clang-format'],
+\   'cpp' : ['clang-format'],
+\}
+let g:ale_linters = {'cpp': ['clang']}
+
+" indentLine
+let g:indentLine_char = '▏'
+let g:indentLine_color_gui = '#363949'
+
+"auto save
+let g:auto_save = 1                                     " enable AutoSave on Vim startup
+let g:auto_save_no_updatetime = 1                       " do not change the 'updatetime' option
+let g:auto_save_in_insert_mode = 0                      " do not save while in insert mode
+let g:auto_save_silent = 1
+
+"checkbox && bullets
+let g:bullets_enable_file_type =['markdown','text','gitcommit','*']                   "i enable this shit for all file types
+"rainbow
+let g:rainbow_active = 1
+
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+abbrev ** ●
 
 " the essentials
 let mapleader=","
@@ -173,96 +254,3 @@ nnoremap <C-l> <C-w>l
 " select text via ctrl+shift+arrows in insert mode
 inoremap <C-S-left> <esc>vb
 inoremap <C-S-right> <esc>ve
-
-" performance tweaks
-set nocursorline
-set nocursorcolumn
-set scrolljump=5
-set lazyredraw
-set synmaxcol=180
-set re=1
-
-" required by coc
-set hidden
-set nobackup
-set nowritebackup
-set cmdheight=1
-set updatetime=300
-set shortmess+=c
-set signcolumn=yes
-
-let g:material_style='oceanic'
-set background=dark
-colorscheme vim-material
-let g:airline_theme='material'
-highlight Pmenu guibg='00010a' guifg=white              " popup menu colors
-highlight Comment gui=bold                              " bold comments
-highlight Normal gui=none
-highlight NonText guibg=none
-highlight clear SignColumn                              " use number color for sign colum color
-hi Search guibg=orange                                  " search string highlight color
-autocmd ColorScheme * highlight VertSplit cterm=NONE    " split color
-
-" colors for git(especially the gutter)
-hi DiffAdd guibg='#0f111a'
-hi DiffChange guibg='#0f111a'
-
-" coc multi cursor highlight color
-hi CocCursorRange guibg=#b16286 guifg=#ebdbb2
-
-
-" list of the extensions required
-let g:coc_global_extensions = [
-            \'coc-yank',
-            \'coc-highlight',
-            \'coc-prettier',
-            \'coc-pairs',
-            \'coc-json',
-            \'coc-css',
-            \'coc-html',
-            \'coc-tsserver',
-            \'coc-yaml',
-            \'coc-lists',
-            \'coc-snippets',
-            \'coc-python',
-            \'coc-xml',
-            \'coc-word',
-            \'coc-syntax',
-            \'coc-emoji',
-            \'coc-git',
-            \]
-" ALE
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'c' : ['clang-format'],
-\   'cpp' : ['clang-format'],
-\}
-let g:ale_fix_on_save = 1
-let g:ale_linters = {'cpp': ['clang']}
-
-" indentLine
-let g:indentLine_char = '▏'
-let g:indentLine_color_gui = '#363949'
-
-"auto save
-let g:auto_save = 1                                     " enable AutoSave on Vim startup
-let g:auto_save_no_updatetime = 1                       " do not change the 'updatetime' option
-let g:auto_save_in_insert_mode = 0                      " do not save while in insert mode
-let g:auto_save_silent = 1
-
-"checkbox && bullets
-let g:bullets_enable_file_type =['markdown','text','gitcommit','*']                   "i enable this shit for all file types
-"rainbow
-let g:rainbow_active = 1
-
-" use <tab> for trigger completion and navigate to the next complete item
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
-abbrev ** ●
