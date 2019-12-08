@@ -27,13 +27,12 @@ Plug 'junegunn/fzf.vim'                                " fuzzy search integratio
 
 " snippets
 Plug 'honza/vim-snippets'                               " actual snippets
-Plug 'SirVer/ultisnips'                                 " snippets and shit
+"Plug 'SirVer/ultisnips'                                 " snippets and shit
 
 " visual
 Plug 'majutsushi/tagbar'                                " side bar of tags
 Plug 'scrooloose/nerdtree'                              " open folder tree
 Plug 'jiangmiao/auto-pairs'                             " auto insert other paranthesis pairb
-Plug 'alvan/vim-closetag'                               " auto close html tags
 Plug 'Yggdroot/indentLine'                              " show indentation lines
 Plug 'chrisbra/Colorizer'                               " show actual colors of color codes
 Plug 'google/vim-searchindex'                           " add number of found matching search items
@@ -229,7 +228,6 @@ let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'c' : ['clang-format'],
 \   'cpp' : ['clang-format'],
-\   'mips' : ['gcc'],
 \}
 let g:ale_fix_on_save = 1
 let g:ale_linters = {'cpp': ['clang']}
@@ -247,3 +245,14 @@ let g:auto_save_silent = 1
 "checkbox && bullets
 let g:checkbox_states = [' ', 'x']
 let g:bullets_enable_file_type =['*']                   "i enable this shit for all file types
+
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
