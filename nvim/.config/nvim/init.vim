@@ -6,27 +6,15 @@ Plug 'vim-airline/vim-airline-themes'                   " airline themes
 Plug 'ryanoasis/vim-devicons'                           " powerline like icons for NERDTree
 Plug 'junegunn/rainbow_parentheses.vim'                 " rainbow paranthesis
 Plug 'hzchirs/vim-material'                             " material color themes
-Plug 'junegunn/goyo.vim'                                " zen mode
-Plug 'amix/vim-zenroom2'                                " more focus in zen mode
 
 " ================= Functionalities ================= "
 
-" autocompletion using ncm2 (much lighter and faster than coc)
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-path'
-Plug 'filipekiss/ncm2-look.vim'
-Plug 'fgrsnau/ncm-otherbuf'
-Plug 'fgrsnau/ncm2-aspell'
-Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
-Plug 'ncm2/ncm2-pyclang'
-Plug 'davidhalter/jedi-vim'
-Plug 'ncm2/ncm2-jedi'
-Plug 'ncm2/ncm2-vim' | Plug 'Shougo/neco-vim'
-Plug 'ncm2/ncm2-ultisnips'
-Plug 'ncm2/ncm2-html-subscope'
-Plug 'ncm2/ncm2-markdown-subscope'
+"coc lang server and those shit
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'desmap/ale-sensible' | Plug 'w0rp/ale'
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'css', 'less', 'scss', 'json',  'markdown',  'yaml', 'html'] }
 
 " markdown
 Plug 'jkramer/vim-checkbox', { 'for': 'markdown' }
@@ -71,10 +59,20 @@ let g:material_style='oceanic'
 set background=dark
 colorscheme vim-material
 let g:airline_theme='material'
-highlight Pmenu guibg=white guifg=black gui=bold
-highlight Comment gui=bold
+highlight Pmenu guibg='00010a' guifg=white              " popup menu colors
+highlight Comment gui=bold                              " bold comments
 highlight Normal gui=none
 highlight NonText guibg=none
+highlight clear SignColumn                              " use number color for sign colum color
+hi Search guibg=orange                                  " search string highlight color
+autocmd ColorScheme * highlight VertSplit cterm=NONE    " split color
+
+" colors for git(especially the gutter)
+hi DiffAdd guibg='#0f111a'
+hi DiffChange guibg='#0f111a'
+
+" coc multi cursor highlight color
+hi CocCursorRange guibg=#b16286 guifg=#ebdbb2
 autocmd ColorScheme * highlight VertSplit cterm=NONE ctermfg=Green ctermbg=NONE
 
 " ==================== general config ======================== "
@@ -107,6 +105,13 @@ set undodir=~/.nvim/tmp                                 " undo temp file directo
 set ttyfast                                             " faster scrolling
 set lazyredraw                                          " faster scrolling
 
+" Trim Whitespaces
+function! TrimWhitespace()
+    let l:save = winsaveview()
+    %s/\\\@<!\s\+$//e
+    call winrestview(l:save)
+endfunction
+
 " Airline
 let g:airline_powerline_fonts = 0
 let g:airline#themes#clean#palette = 1
@@ -117,6 +122,23 @@ let g:airline_section_z = airline#section#create(['%3p%%  ',
 let g:airline_section_warning = ''
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'        " show only file name on tabs
+
+
+" the essentials
+let mapleader=","
+nnoremap ; :
+nmap \ <leader>q
+map <F6> :Startify <CR>
+nmap <leader>r :so ~/.config/nvim/init.vim<CR>
+nmap <leader>t :call TrimWhitespace()<CR>
+nmap <leader>q :bd<CR>
+nmap <leader>w :w<CR>
+nmap <leader>f :Files<CR>
+nmap <Tab> :bnext<CR>
+nmap <S-Tab> :bprevious<CR>
+noremap <leader>e :PlugInstall<CR>
+noremap <C-q> :q<CR>
+inoremap jj <ESC>
 
 " use a different buffer for dd
 nnoremap d "_d
@@ -144,3 +166,84 @@ nnoremap <C-l> <C-w>l
 " select text via ctrl+shift+arrows in insert mode
 inoremap <C-S-left> <esc>vb
 inoremap <C-S-right> <esc>ve
+
+" performance tweaks
+set nocursorline
+set nocursorcolumn
+set scrolljump=5
+set lazyredraw
+set synmaxcol=180
+set re=1
+
+" required by coc
+set hidden
+set nobackup
+set nowritebackup
+set cmdheight=1
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
+
+let g:material_style='oceanic'
+set background=dark
+colorscheme vim-material
+let g:airline_theme='material'
+highlight Pmenu guibg='00010a' guifg=white              " popup menu colors
+highlight Comment gui=bold                              " bold comments
+highlight Normal gui=none
+highlight NonText guibg=none
+highlight clear SignColumn                              " use number color for sign colum color
+hi Search guibg=orange                                  " search string highlight color
+autocmd ColorScheme * highlight VertSplit cterm=NONE    " split color
+
+" colors for git(especially the gutter)
+hi DiffAdd guibg='#0f111a'
+hi DiffChange guibg='#0f111a'
+
+" coc multi cursor highlight color
+hi CocCursorRange guibg=#b16286 guifg=#ebdbb2
+
+
+" list of the extensions required
+let g:coc_global_extensions = [
+            \'coc-yank',
+            \'coc-highlight',
+            \'coc-prettier',
+            \'coc-pairs',
+            \'coc-json',
+            \'coc-css',
+            \'coc-html',
+            \'coc-tsserver',
+            \'coc-yaml',
+            \'coc-lists',
+            \'coc-snippets',
+            \'coc-python',
+            \'coc-xml',
+            \'coc-word',
+            \'coc-syntax',
+            \'coc-emoji',
+            \'coc-git',
+            \]
+" ALE
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'c' : ['clang-format'],
+\   'cpp' : ['clang-format'],
+\   'mips' : ['gcc'],
+\}
+let g:ale_fix_on_save = 1
+let g:ale_linters = {'cpp': ['clang']}
+
+" indentLine
+let g:indentLine_char = '▏'
+let g:indentLine_color_gui = '#363949'
+
+"auto save
+let g:auto_save = 1                                     " enable AutoSave on Vim startup
+let g:auto_save_no_updatetime = 1                       " do not change the 'updatetime' option
+let g:auto_save_in_insert_mode = 0                      " do not save while in insert mode
+let g:auto_save_silent = 1
+
+"checkbox && bullets
+let g:checkbox_states = [' ', 'x']
+let g:bullets_enable_file_type =['*']                   "i enable this shit for all file types
