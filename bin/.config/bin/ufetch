@@ -8,7 +8,9 @@
 host="$(hostname)"
 os='Arch Linux'
 kernel="$(uname -sr)"
-uptime="$(uptime -p | sed 's/up //')"
+uptime_="$(uptime | cut -d' ' -f 4,5 | sed "")"
+uptime__=$(uptime -p| cut -d' ' -f 6,7,8,9 | sed "s/,/ and/")
+uptime=$(echo $uptime_ $uptime__)
 packages="$(pacman -Q | wc -l)"
 shell="$(basename "$SHELL")"
 
