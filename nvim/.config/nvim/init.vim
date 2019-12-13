@@ -209,6 +209,21 @@ inoremap <silent><expr> <Tab>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
+
+let g:grammarous#languagetool_cmd = 'languagetool'
+let g:grammarous#default_comments_only_filetypes = {
+            \ '*' : 1, 'help' : 0, 'markdown' : 0,
+            \ }
+let g:grammarous#enabled_rules = {'*' : ['PASSIVE_VOICE']}
+let g:grammarous#disabled_rules = {
+            \ '*' : ['WHITESPACE_RULE', 'EN_QUOTES'],
+            \ 'help' : ['WHITESPACE_RULE', 'EN_QUOTES', 'SENTENCE_WHITESPACE', 'UPPERCASE_SENTENCE_START'],
+            \ }
+let g:grammarous#enabled_categories = {'*' : ['PUNCTUATION']}
+let g:grammarous#disabled_categories = {
+            \ '*' : ['PUNCTUATION'],
+            \ 'help' : ['PUNCTUATION', 'TYPOGRAPHY'],
+            \ }
 abbrev ** ●
 
 " the essentials
