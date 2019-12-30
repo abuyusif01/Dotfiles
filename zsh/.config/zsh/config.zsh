@@ -1,4 +1,3 @@
-
 if type ag &> /dev/null; then
     export FZF_DEFAULT_COMMAND='ag --hidden -p ~/.fignore -g ""'
 fi
@@ -16,7 +15,7 @@ sudo-command-line() {
     else
         LBUFFER="sudo $LBUFFER"
     fi
-}
+} 
 
 # various aliases.
 alias free="free -h"
@@ -50,3 +49,4 @@ alias clone="git clone"
 alias gb="git branch -a"
 alias gco="git checkout"
 alias gbd="git branch -d "
+alias cc="ls -lah"
