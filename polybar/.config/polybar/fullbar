@@ -1,20 +1,23 @@
-width                    = 1360
+width                    = 1361
 height                   = 22
-radius                   = 5
+radius                   = 7
 line-size                = 0
 bottom                   = false
 cursor-click = pointer
 wm-restack = bspwm
 
 fixed-center = true
-font-0 = San Francisco Display Regular:size=4;2
-font-1 = unifont:fontformat=truetype:size=5:antialias=false;2
-font-2 = "MaterialIcons:size=5:antialias=false;2"
-font-3 = "icomoon-extended-ultra:size=5:antialias=false;2"
-font-4 = "Ubuntu Nerd Font:size=8:antialias=faalse;2"
-font-5 = FontAwesome:size=5;2
-
-
+;; the actual font
+font-0 = Fira Code:size=5:antialias=true;2
+;;
+font-1 = unifont:fontformat=truetype:size=5:antialias=true;1
+font-2 = "MaterialIcons:size=5:antialias=true;2"
+;;dependency
+font-3 = "icomoon-extended-ultra:size=6:antialias=true;2"
+font-4 = "Fira Code:size=5:antialias=true;2"
+;; the shit am usinga
+font-5 = FontAwesome:size=5:antialias=true;2
+font-6 = "Font Awesome 5:style=Regular:size=5:antialias=true;2"
 
 override-redirect = true
 offset-x = 3
@@ -25,5 +28,5 @@ throttle-output-for      = 7
 throttle-input-for       = 20
 padding-left             = 0
 padding-right            = 0
-module-margin-left       = 2
+module-margin-left       = 1
 module-margin-right      = 1
