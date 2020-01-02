@@ -29,4 +29,4 @@
 > - Text editor: neovim
 > - init.nvim: Credits goes to [this](https://github.com/blacksuan19) nibba
 
-![alt text](https://i.redd.it/se2r607d10241.png)
+![alt text](https://i.redd.it/nstoq23wue841.png)
