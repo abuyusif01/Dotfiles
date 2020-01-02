@@ -21,20 +21,16 @@ overline-size = 2
 overline-color = ${color.accent}
 modules-left = workspaces title
 modules-center =
-modules-right = Playing battery volume backlight eth date poweroff
-
+modules-right = Playing temp battery volume backlight wifi weather date
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;temp, battery, light, sound, wifi, time
 
 [module/date]
 type = internal/date
-interval = 1.0
-time = %H: %M
+time = %H:%M
 time-alt = %a %d %b
-label ="%time%"
-label-alt =
-format = <label>
-format-padding = 1
+label ="| %time% "
 
 
 [module/backlight]
@@ -42,8 +38,22 @@ type = custom/script
 exec = ~/.config/bin/light.sh
 scroll-up = exec light -A 5
 scroll-down = exec light -U 5
-format-prefix = " "
+format-prefix = "| "
+label = "%output% |"
+
+
+[module/weather]
+type = custom/script
+exec = ~/.config/bin/weather.sh
+format-prefix = "| "
 label = %output%
+
+[module/temp]
+type = custom/script
+exec = ~/.config/bin/System_temp.sh
+format-prefix = "  "
+label = %output%
+format-foreground = ${color.red}
 
 
 [module/battery]
@@ -51,9 +61,10 @@ type = internal/battery
 battery = BAT0
 adapter = AC90
 poll-interval = 0
-format-discharging = <ramp-capacity> <label-discharging>
-format-full = <ramp-capacity> <label-full>
-format-charging = <ramp-capacity> <label-charging> 
+ramp-capacity-foreground = ${color.dunno}
+format-discharging = | <ramp-capacity> <label-discharging>
+format-full =| <ramp-capacity> <label-full>
+format-charging =| <ramp-capacity> <label-charging> 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
@@ -62,52 +73,44 @@ ramp-capacity-4 = 
 
 
 [module/volume]
-type = internal/volume
-format-volume =   <ramp-volume>  <label-volume>
-format-muted = 0%  
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
+type = internal/alsa
+format-volume =| <ramp-volume> <label-volume>
+format-muted = 0%
+ramp-volume-0 =
+ramp-volume-1 =
+ramp-volume-2 =
 
 
-[module/poweroff]
-type = custom/script
-exec = ~/.config/bin/arch.sh
-;format-prefix = "  "
-;format-prefix = "FF"
-click-left = rofi -modi run,drun,window -show drun
-click-right = i3lock-fancy -pg &
-click-middle = /usr/bin/rofi-logout
-format-padding = 1
-label = %output%
-
+[module/wifi]
+type = internal/network
+interface =wlp6s0
+format-connected =<label-connected>
+label-connected-foreground = ${color.dunno}
+label-connected =""
+format-disconnected =<label-disconnected>
+label-disconnected =not connected
 
 [module/eth]
 type = internal/network
-interface = wlp6s0
-interval = 1.0
-format-connected = <label-connected>
-format-connected-prefix = " "
-format-connected-prefix-foreground = #eceff4
-label-connected = %downspeed:9%
-format-disconnected = <label-disconnected>
-label-disconnected = not connected
-label-disconnected-foreground = #66ffffff
-format-padding = 0
-
+interface =enp7s0
+format-connected =<label-connected>
+label-connected-foreground = ${color.dunno}
+label-connected ="| "
+format-disconnected =<label-disconnected>
+label-disconnected =not connected
 
 [module/title]
 type = internal/xwindow
 format = <label>
 format-padding = 1
 label = " %title%"
-label-maxlen = 50
-label-empty = "  Arch Linux"
+label-maxlen = 30
+label-empty = " Arch Linux"
 
 
 [module/workspaces]
 type = internal/bspwm
-pin-workspaces = true
+pin-workspaces = false
 enable-click = true
 enable-scroll = true
 format = <label-state>
