@@ -24,29 +24,18 @@ modules-center =
 modules-right = Playing temp battery volume backlight wifi weather date
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;temp, battery, light, sound, wifi, time
-
-[module/date]
-type = internal/date
-time = %H:%M
-time-alt = %a %d %b
-label ="| %time% "
+;;temp, battery, sound, light, wifi, time, weather, time
 
 
-[module/backlight]
+[module/Playing]
 type = custom/script
-exec = ~/.config/bin/light.sh
-scroll-up = exec light -A 5
-scroll-down = exec light -U 5
-format-prefix = "| "
-label = "%output% |"
+exec = ~/.config/bin/playing.sh
+format-prefix = " "
+interval = 0.1
+label-font = 0
+click-left = sp play
+format-padding = 1
 
-
-[module/weather]
-type = custom/script
-exec = ~/.config/bin/weather.sh
-format-prefix = "| "
-label = %output%
 
 [module/temp]
 type = custom/script
@@ -61,7 +50,7 @@ type = internal/battery
 battery = BAT0
 adapter = AC90
 poll-interval = 0
-ramp-capacity-foreground = ${color.dunno}
+;;ramp-capacity-foreground = ${color.dunno}
 format-discharging = | <ramp-capacity> <label-discharging>
 format-full =| <ramp-capacity> <label-full>
 format-charging =| <ramp-capacity> <label-charging> 
@@ -81,6 +70,15 @@ ramp-volume-1 =
 ramp-volume-2 =
 
 
+[module/backlight]
+type = custom/script
+exec = ~/.config/bin/light.sh
+scroll-up = exec light -A 5
+scroll-down = exec light -U 5
+format-prefix = "| "
+label = "%output% |"
+
+
 [module/wifi]
 type = internal/network
 interface =wlp6s0
@@ -90,6 +88,7 @@ label-connected =""
 format-disconnected =<label-disconnected>
 label-disconnected =not connected
 
+
 [module/eth]
 type = internal/network
 interface =enp7s0
@@ -98,6 +97,21 @@ label-connected-foreground = ${color.dunno}
 label-connected ="| "
 format-disconnected =<label-disconnected>
 label-disconnected =not connected
+
+
+[module/weather]
+type = custom/script
+exec = ~/.config/bin/weather.sh
+format-prefix = "| "
+label = %output%
+
+
+[module/date]
+type = internal/date
+time = %H:%M
+time-alt = %a %d %b
+label ="| %time% "
+
 
 [module/title]
 type = internal/xwindow
@@ -125,12 +139,3 @@ label-focused-padding = 1
 label-urgent-padding = 1
 label-occupied-padding = 1
 label-empty-padding = 1
-
-[module/Playing]
-type = custom/script
-exec = ~/.config/bin/playing.sh
-format-prefix = " "
-interval = 0.1
-label-font = 0
-click-left = sp play
-format-padding = 1
