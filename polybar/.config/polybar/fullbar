@@ -8,12 +8,12 @@ wm-restack = bspwm
 
 fixed-center = true
 ;; the actual font
-font-0 = Fira Code:size=5:antialias=true;2
+font-0 = Fira Code:size=4.5:antialias=true;2
 ;;
 font-1 = unifont:fontformat=truetype:size=5:antialias=true;1
 font-2 = "MaterialIcons:size=5:antialias=true;2"
 ;;dependency
-font-3 = "icomoon-extended-ultra:size=6:antialias=true;2"
+font-3 = "icomoon-extended-ultra:size=5:antialias=true;2"
 font-4 = "Fira Code:size=5:antialias=true;2"
 ;; the shit am usinga
 font-5 = FontAwesome:size=5:antialias=true;2
