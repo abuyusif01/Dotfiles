@@ -53,7 +53,7 @@ type = custom/script
 exec = ~/.config/bin/System_temp.sh
 format-prefix = "  "
 label = %output%
-format-foreground = ${color.red}
+format-prefix-foreground = ${color.red}
 
 
 [module/battery]
