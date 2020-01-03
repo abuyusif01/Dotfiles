@@ -2,5 +2,5 @@
 
 while true; do
 feh --randomize --bg-fill /home/blackdracula/.wallpaper/*
-sleep 2h
+sleep 1h
 done
