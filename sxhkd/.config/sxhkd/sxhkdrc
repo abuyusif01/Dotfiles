@@ -12,7 +12,11 @@ super + f
 
 # program launcher
 super + @space
-    $HOME/.config/bin/rofi_run
+    rofi_run
+
+#dmenu_run
+alt + @space
+    dmenu_run -fn FiraCode
 
 # make sxhkd reload its configuration files:
 super + shift + r
