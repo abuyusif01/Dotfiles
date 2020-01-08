@@ -2,7 +2,6 @@
 
 # set root pointer
 xsetroot -cursor_name left_ptr
-xset r rate 200 50
 
 # try to start termite in the first place
 kitty &
