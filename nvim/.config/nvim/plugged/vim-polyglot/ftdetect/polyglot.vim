@@ -1,3 +1,15 @@
+if !exists('g:markdown_enable_spell_checking')
+  let g:markdown_enable_spell_checking = 0
+end
+
+if !exists('g:markdown_enable_input_abbreviations')
+  let g:markdown_enable_input_abbreviations = 0
+end
+
+if !exists('g:markdown_enable_mappings')
+  let g:markdown_enable_mappings = 0
+end
+
 " Enable jsx syntax by default
 if !exists('g:jsx_ext_required')
   let g:jsx_ext_required = 0
@@ -507,6 +519,29 @@ endif
 if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'graphql') == -1
   augroup filetypedetect
   " graphql, from graphql.vim in jparise/vim-graphql:_ALL
+" Copyright (c) 2016-2019 Jon Parise <jon@indelible.org>
+"
+" Permission is hereby granted, free of charge, to any person obtaining a copy
+" of this software and associated documentation files (the "Software"), to
+" deal in the Software without restriction, including without limitation the
+" rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+" sell copies of the Software, and to permit persons to whom the Software is
+" furnished to do so, subject to the following conditions:
+"
+" The above copyright notice and this permission notice shall be included in
+" all copies or substantial portions of the Software.
+"
+" THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+" IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+" FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+" AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+" LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+" FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+" IN THE SOFTWARE.
+"
+" Language: GraphQL
+" Maintainer: Jon Parise <jon@indelible.org>
+
 " vint: -ProhibitAutocmdWithNoGroup
 au BufRead,BufNewFile *.graphql,*.graphqls,*.gql setfiletype graphql
   augroup end
@@ -781,7 +816,7 @@ endif
 
 if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'markdown') == -1
   augroup filetypedetect
-  " markdown, from markdown.vim in plasticboy/vim-markdown:_SYNTAX
+  " markdown, from markdown.vim in plasticboy/vim-markdown:_NOAFTER
 if !has('patch-7.4.480')
     " Before this patch, vim used modula2 for .md.
     au! filetypedetect BufRead,BufNewFile *.md
@@ -1473,10 +1508,17 @@ autocmd BufNewFile,BufRead *.tsx setlocal filetype=typescriptreact
   augroup end
 endif
 
+if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'v') == -1
+  augroup filetypedetect
+  " v, from vlang.vim in ollykel/v-vim
+au BufNewFile,BufRead *.v set filetype=vlang
+au BufNewFile,BufRead *.v set syntax=vlang
+  augroup end
+endif
+
 if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'vala') == -1
   augroup filetypedetect
   " vala, from vala.vim in arrufat/vala.vim
-autocmd BufRead *.vala,*.vapi set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
 au BufRead,BufNewFile *.vala,*.vapi,*.valadoc setfiletype vala
   augroup end
 endif

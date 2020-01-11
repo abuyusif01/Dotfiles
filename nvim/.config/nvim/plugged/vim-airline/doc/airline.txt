@@ -228,10 +228,24 @@ values):
   heavily) >
   let g:airline_exclude_preview = 0
 <
-* disable the Airline customization for selected windows (this is a
+* disable the Airline statusline customization for selected windows (this is a
   window-local variable so you can disable it per-window) >
-  let w:airline_disabled = 1
+  let w:airline_disable_statusline = 1
+<
+  Old deprecated name: `w:airline_disabled`
 
+  See also the following options, for disabling setting the statusline
+  globally or per-buffer
+* Disable setting the statusline option: >
+  " disable globally
+  let g:airline_disable_statusline = 1
+
+  " disable per-buffer
+  let b:airline_disable_statusline = 1
+
+< This setting disables setting the 'statusline' option. This allows to use
+ e.g. the tabline extension (|airline-tabline|) but keep the 'statusline'
+ option totally configurable by a custom configuration.
 * Do not draw separators for empty sections (only for the active window) >
   let g:airline_skip_empty_sections = 1
 <
@@ -465,6 +479,7 @@ vim-airline will display the branch-indicator together with the branch name
 in the statusline, if one of the following plugins is installed:
 
 fugitive.vim <https://github.com/tpope/vim-fugitive>
+gina.vim     <https://github.com/lambdalisue/gina.vim>
 lawrencium   <https://bitbucket.org/ludovicchabant/vim-lawrencium>
 vcscommand   <http://www.vim.org/scripts/script.php?script_id=90>
 
@@ -699,6 +714,10 @@ gina.vim <https://github.com/lambdalisue/gina.vim>
 Airline displays the gina.vim specific statusline.
 (for details, see the help of gina.vim)
 
+* enable/disable bufferline integration >
+  let g:airline#extensions#gina_status = 1
+<  default: 1
+
 -------------------------------------                     *airline-grepper*
 vim-grepper <https://github.com/mhinz/vim-grepper>
 
@@ -819,6 +838,12 @@ files with the 'filetype' "po".
 * truncate width names to a fixed length >
   let g:airline#extensions#po#displayed_limit = 0
 
+-------------------------------------                   *airline-poetv*
+poetv <https://github.com/petobens/poet-v>
+
+* enable/disable poetv integration >
+  let g:airline#extensions#poetv#enabled = 1
+<
 -------------------------------------                   *airline-promptline*
 promptline <https://github.com/edkolev/promptline.vim>
 
@@ -956,7 +981,7 @@ with the middle mouse button to delete that buffer.
 
 * enable/disable displaying index of the buffer.
 
-  `buffer_idx_mode` allows 2 different modes to access buffers from the
+  `buffer_idx_mode` allows 3 different modes to access buffers from the
   tabline. When enabled, numbers will be displayed in the tabline and
   mappings will be exposed to allow you to select a buffer directly.
   In default mode, when the variable is 1 Up to 11 mappings will be
@@ -975,9 +1000,7 @@ with the middle mouse button to delete that buffer.
   nmap <leader>- <Plug>AirlineSelectPrevTab
   nmap <leader>+ <Plug>AirlineSelectNextTab
 <
-  In mode 2, (when the variable is 2) 89 mappings will be exposed
-  (Note: To avoid ambiguity, there won't be <Plug>AirlineSelectTab1
-  - <Plug>AirlineSelectTab9 maps): >
+  In mode 2, (when the variable is 2) 89 mappings will be exposed: >
 
   let g:airline#extensions#tabline#buffer_idx_mode = 2
   nmap <Leader>10 <Plug>AirlineSelectTab10
@@ -989,6 +1012,22 @@ with the middle mouse button to delete that buffer.
 <
   The <Plug>AirlineSelect<Prev/Next>Tab mapping handles counts as well,
   so one can handle arbirtrarily number of buffers/tabs.
+
+  Mode 3 is exactly the same as mode 2, except the indexing start at 01,
+  exposing 99 mappings: >
+
+  let g:airline#extensions#tabline#buffer_idx_mode = 3
+  nmap <Leader>01 <Plug>AirlineSelectTab01
+  nmap <Leader>02 <Plug>AirlineSelectTab02
+  nmap <Leader>03 <Plug>AirlineSelectTab03
+  ...
+  nmap <Leader>99 <Plug>AirlineSelectTab99
+<
+  This matches that of the numbering scheme of |:buffers|, letting
+  `<Plug>AirlineSelectTab67` to reference buffer 67.
+
+  Note: To avoid ambiguity, there won't be <Plug>AirlineSelectTab1
+  - <Plug>AirlineSelectTab9 maps in mode 2 and 3.
 
   Note: Mappings will be ignored for filetypes that match
   `g:airline#extensions#tabline#keymap_ignored_filetypes`.
@@ -1227,7 +1266,7 @@ virtualenv <https://github.com/jmcantrell/vim-virtualenv>
   let g:airline#extensions#virtualenv#enabled = 1
 <
 -------------------------------------                   *airline-vista*
-vista.vim <https://github.com/liuchngxu/vista.vim>
+vista.vim <https://github.com/liuchengxu/vista.vim>
 
 * enable/disable vista integration >
   let g:airline#extensions#vista#enabled = 1

@@ -1,3 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =1
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/home/blackdracula/.config/coc/extensions/coc-yank-data'
+let g:netrw_dirhist_7='/home/blackdracula/.config/coc/extensions'
+let g:netrw_dirhist_6='/home/blackdracula/.config/coc/extensions/node_modules/coc-emoji'
+let g:netrw_dirhist_5='/home/blackdracula/.config/coc/extensions/node_modules'
+let g:netrw_dirhist_4='/home/blackdracula/.config/coc/extensions'
+let g:netrw_dirhist_3='/home/blackdracula/.config/coc'
+let g:netrw_dirhist_2='/home/blackdracula/.config/coc/extensions'
 let g:netrw_dirhist_1='/home/blackdracula/dev/ncurses'

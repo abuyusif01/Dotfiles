@@ -516,6 +516,11 @@ Builtin configurations:~
 	Automatically update the value of `b:coc_current_function` on
 	`CursorHold` event,  default: `false`
 
+"coc.preferences.formatOnInsertLeave":~
+
+	Trigger format on type when insert leave by send \n to the server.
+	Default: `false`
+
 "coc.preferences.formatOnSaveFiletypes":~
 
 	Filetypes that should run format on save.,  default: `[]`
@@ -528,7 +533,7 @@ Builtin configurations:~
 
 	Root patterns to resolve workspaceFolder from parent folders of opened
 	files, resolved from up to down.,  default:
-	`[".vim",".git",".hg",".projections.json"]`
+	`[".git",".hg",".projections.json"]`
 
 "coc.preferences.watchmanPath":~
 
@@ -1058,6 +1063,19 @@ To run a function on startup, use an autocmd like: >
  	autocmd User CocNvimInit call CocAction('runCommand',
 						\ 'tsserver.watchBuild')
 <
+
+						*coc#start()*
+coc#start([{option}])
+
+	Start completion with optional {option}.  Option could contains:
+
+		- `source` specific completion source name.
+
+	ex:  >
+
+	inoremap <silent> <C-w> <C-R>=coc#start({'source': 'word'})<CR>
+<
+	Use `CocList sources` to get available sources.
 						*coc#config()*
 coc#config({section}, {value})
 
@@ -2398,7 +2416,7 @@ Q: 	I want to use ale for diagnostics.
 
 A: 	Yes, you can make coc send diagnostics to ale, just add >
 
-	"coc.preferences.diagnostic.displayByAle": true,
+	"diagnostic.displayByAle": true,
 <
 	to your coc-settings.json
 

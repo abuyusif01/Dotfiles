@@ -3,9 +3,9 @@ call plug#begin()
 
 Plug 'vim-airline/vim-airline'                          " airline status bar
 Plug 'vim-airline/vim-airline-themes'                   " airline themes
-Plug 'ryanoasis/vim-devicons'                           " powerline like icons for NERDTree
 Plug 'hzchirs/vim-material'                             " material color themes
 Plug 'luochen1990/rainbow'
+Plug 'cj/vim-webdevicons'
 
 " ================= Functionalities ================= "
 
@@ -13,8 +13,9 @@ Plug 'luochen1990/rainbow'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'desmap/ale-sensible' | Plug 'w0rp/ale'
 Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'css', 'less', 'scss', 'json',  'markdown',  'yaml', 'html'] }
+        \ 'do': 'yarn install',
+        \ 'for': ['javascript', 'css', 'less', 'scss', 'json',  'markdown',  'yaml', 'html']
+    }
 
 " markdown
 Plug 'dkarter/bullets.vim'                              " markdown bullet lists
@@ -26,11 +27,8 @@ Plug 'junegunn/fzf.vim'                                " fuzzy search integratio
 
 " snippets
 Plug 'honza/vim-snippets'                               " actual snippets
-"Plug 'SirVer/ultisnips'                                 " snippets and shit
 
 " visual
-Plug 'majutsushi/tagbar'                                " side bar of tags
-Plug 'scrooloose/nerdtree'                              " open folder tree
 Plug 'jiangmiao/auto-pairs'                             " auto insert other paranthesis pairb
 Plug 'Yggdroot/indentLine'                              " show indentation lines
 Plug 'chrisbra/Colorizer'                               " show actual colors of color codes
@@ -41,9 +39,9 @@ Plug 'sheerun/vim-polyglot'                             " many languages support
 Plug 'tpope/vim-liquid'                                 " liquid language support
 
 " other
-Plug 'Chiel92/vim-autoformat'                           " an actually good and light auto formatter
 Plug 'tpope/vim-commentary'                             " better commenting
 Plug 'rhysd/vim-grammarous'                             " grammer checker
+Plug 'rhysd/vim-clang-format'                           " clang stuff
 Plug 'tpope/vim-sensible'                               " sensible defaults
 Plug 'lambdalisue/suda.vim'                             " save as sudo
 Plug '907th/vim-auto-save'                              " auto save changes
@@ -124,7 +122,7 @@ let g:airline#themes#clean#palette = 1
 call airline#parts#define_raw('linenr', '%l')
 call airline#parts#define_accent('linenr', 'bold')
 let g:airline_section_z = airline#section#create(['%3p%%  ',
-\ g:airline_symbols.linenr .' ', 'linenr', ':%c '])
+            \ g:airline_symbols.linenr .' ', 'linenr', ':%c '])
 let g:airline_section_warning = ''
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'        " show only file name on tabs
@@ -146,9 +144,6 @@ set updatetime=300
 set shortmess+=c
 set signcolumn=yes
 
-let g:material_style='oceanic'
-set background=dark
-colorscheme vim-material
 let g:airline_theme='material'
 highlight Pmenu guibg='00010a' guifg=white              " popup menu colors
 highlight Comment gui=bold                              " bold comments
@@ -176,13 +171,6 @@ let g:coc_global_extensions = [
             \'coc-emoji',
             \'coc-git',
             \]
-" ALE
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'c' : ['clang-format'],
-\   'cpp' : ['clang-format'],
-\}
-let g:ale_linters = {'cpp': ['clang']}
 
 " indentLine
 let g:indentLine_char = '▏'
@@ -199,31 +187,19 @@ let g:bullets_enable_file_type =['markdown','text','gitcommit','*']             
 "rainbow
 let g:rainbow_active = 1
 
+"Clang stuff
+let g:clang_format#code_sytle="$HOME/.config/nvim/clang/llvm"
+
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
 
 inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
-
-let g:grammarous#languagetool_cmd = 'languagetool'
-let g:grammarous#default_comments_only_filetypes = {
-            \ '*' : 1, 'help' : 0, 'markdown' : 0,
-            \ }
-let g:grammarous#enabled_rules = {'*' : ['PASSIVE_VOICE']}
-let g:grammarous#disabled_rules = {
-            \ '*' : ['WHITESPACE_RULE', 'EN_QUOTES'],
-            \ 'help' : ['WHITESPACE_RULE', 'EN_QUOTES', 'SENTENCE_WHITESPACE', 'UPPERCASE_SENTENCE_START'],
-            \ }
-let g:grammarous#enabled_categories = {'*' : ['PUNCTUATION']}
-let g:grammarous#disabled_categories = {
-            \ '*' : ['PUNCTUATION'],
-            \ 'help' : ['PUNCTUATION', 'TYPOGRAPHY'],
-            \ }
+            \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<Tab>" :
+            \ coc#refresh()
 abbrev ** ●
 
 " the essentials

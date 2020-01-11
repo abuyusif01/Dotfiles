@@ -3,6 +3,11 @@
 This is the Changelog for the vim-airline project.
 
 ## [0.12] - Unreleased
+- New features
+  - Extensions:
+    - [poetv](https://github.com/petobens/poet-v) support
+- Improvements
+  - git branch can also be displayed using [gina.vim](https://github.com/lambdalisue/gina.vim)
 
 ## [0.11] - 2019-11-10
 - New features
