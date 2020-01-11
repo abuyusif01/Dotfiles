@@ -8,7 +8,7 @@ super + Return
 
 # file manager
 super + f
-    exo-open --launch FileManager
+    ranger
 
 # program launcher
 super + @space
@@ -36,7 +36,7 @@ super + Home
 
 #systemctl suspend
 super + Delete
-    systemctl suspend&&xsecurelock
+    systemctl suspend
 
 #sometimes i hate zsh-auto-suggestion
 #super + ctrl + Delete
