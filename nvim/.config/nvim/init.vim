@@ -13,9 +13,8 @@ Plug 'cj/vim-webdevicons'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'desmap/ale-sensible' | Plug 'w0rp/ale'
 Plug 'prettier/vim-prettier', {
-        \ 'do': 'yarn install',
-        \ 'for': ['javascript', 'css', 'less', 'scss', 'json',  'markdown',  'yaml', 'html']
-    }
+            \ 'do': 'yarn install',
+            \ 'for': ['javascript', 'css', 'less', 'scss', 'json',  'markdown',  'yaml', 'html'] }
 
 " markdown
 Plug 'dkarter/bullets.vim'                              " markdown bullet lists
