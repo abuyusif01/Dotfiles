@@ -2,20 +2,7 @@ if type ag &> /dev/null; then
     export FZF_DEFAULT_COMMAND='ag --hidden -p ~/.fignore -g ""'
 fi
 
-sudo-command-line() {
-    [[ -z $BUFFER ]] && zle up-history
-    if [[ $BUFFER == sudo\ * ]]; then
-        LBUFFER="${LBUFFER#sudo }"
-    elif [[ $BUFFER == $EDITOR\ * ]]; then
-        LBUFFER="${LBUFFER#$EDITOR }"
-        LBUFFER="sudoedit $LBUFFER"
-    elif [[ $BUFFER == sudoedit\ * ]]; then
-        LBUFFER="${LBUFFER#sudoedit }"
-        LBUFFER="$EDITOR $LBUFFER"
-    else
-        LBUFFER="sudo $LBUFFER"
-    fi
-} 
+VISUAL=nvim; export VISUAL EDITOR=nvim; export EDITOR
 
 # various aliases.
 alias free="free -h"
@@ -29,6 +16,7 @@ alias scan="nmcli d wifi rescan"
 alias list="nmcli d wifi list"
 alias ch="cd; cat /dev/null >! .zhistory"
 alias temp="System_temp.sh"
+alias cc="ls -lah"
 
 #packages aliases.
 alias remove="yay -Rs"
@@ -49,4 +37,3 @@ alias clone="git clone"
 alias gb="git branch -a"
 alias gco="git checkout"
 alias gbd="git branch -d "
-alias cc="ls -lah"
