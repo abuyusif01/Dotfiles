@@ -51,13 +51,11 @@ tmux_conf_theme_pane_active_indicator='#0f111a'
 # status line style
 tmux_conf_theme_message_fg='#839491'
 tmux_conf_theme_message_bg='#1d2133'
-#tmux_conf_theme_message_bg='#300a24'
 tmux_conf_theme_message_attr='bold'
 
 # status line command style (<prefix> : Escape)
-#tmux_conf_theme_message_command_fg='#1d2133'
-tmux_conf_theme_message_command_fg='#300a24'
-#tmux_conf_theme_message_command_bg='#839491'
+tmux_conf_theme_message_command_fg='#1d2133'
+tmux_conf_theme_message_command_bg='#839491'
 tmux_conf_theme_message_command_attr='bold'
 
 # window modes style
