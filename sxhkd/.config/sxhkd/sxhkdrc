@@ -177,5 +177,5 @@ super + s
     spotify --disable-gpu
 
 #
-super + f
+super + t
     typora
