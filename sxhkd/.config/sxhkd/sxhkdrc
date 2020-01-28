@@ -12,7 +12,10 @@ super + f
 
 # program launcher
 super + @space
-    rofi_run
+    exec $HOME/.config/bin/rofi_run
+
+super + i
+    exec rofi -modi "clipboard:greenclip print" -show clipboard -font "Fira Code 14"
 
 #dmenu_run
 alt + @space
