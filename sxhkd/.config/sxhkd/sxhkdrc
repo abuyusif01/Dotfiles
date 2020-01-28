@@ -162,20 +162,20 @@ super + shift + ctrl {Left,Down,Up,Right}
 
 # flameshot full screen
 Print
-    flameshot full -p /home/blackdracula/Screenshots/
+    flameshot full -p $HOME/Screenshots/
 
 # flameshot gui
 Print + shift
-    flameshot gui -p /home/blackdracula/Screenshots/clip
+    flameshot gui -p $HOME/Screenshots/clip
 
 #rofi green cipboard
 super + v
-    rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}' -font "DankMono 14"
+    rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}' -font "Fira Code 14"
 
 # spotify Stuff
 super + s
     spotify --disable-gpu
 
 #
-super + n
-    notable
+super + f
+    typora
