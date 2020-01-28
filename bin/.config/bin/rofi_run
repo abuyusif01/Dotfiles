@@ -47,7 +47,7 @@ for arg in "$@"; do
             rofi -modi run,drun -show drun -line-padding 4 \
                 -columns 1 -padding 50 -hide-scrollbar \
                 -show-icons -drun-icon-theme "Tela-Blue" \
-                -font "DankMono 14" 
+                -font "Fira Code 14" 
             ;;
         -w|--window)
             rofi -modi window -show window -hide-scrollbar -padding 50 -line-padding 4 -font "DankMono 14"
