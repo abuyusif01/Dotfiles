@@ -8,7 +8,7 @@ super + Return
 
 # file manager
 super + f
-    ranger
+    kitty -e ranger
 
 # program launcher
 super + @space
@@ -176,6 +176,10 @@ super + v
 super + s
     spotify --disable-gpu
 
-#
+# typora
 super + t
     typora
+
+# telegram
+super + e
+    telegram-desktop
