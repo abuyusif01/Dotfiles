@@ -7,10 +7,8 @@
 # user is already defined
 host="$(hostname)"
 os='Arch Linux'
-kernel="$(uname -sr)"
-uptime_="$(uptime | cut -d' ' -f 4,5 | sed "")"
-uptime__=$(uptime -p| cut -d' ' -f 6,7,8,9 | sed "s/,/ and/")
-uptime=$(echo $uptime_ $uptime__)
+kernel="$(uname -sr | sed 's/[0-9]-[0-9]-zen//')"
+uptime="$(uptime -p | sed 's/up //')"
 packages="$(pacman -Q | wc -l)"
 shell="$(basename "$SHELL")"
 
@@ -29,10 +27,10 @@ elif [ -n "${DESKTOP_SESSION}" ]; then
 	ui="${DESKTOP_SESSION}"
 	uitype='DE'
 elif [ -f "${HOME}/.xinitrc" ]; then
-	ui="$(tail -n 1 "${HOME}/.xinitrc" | cut -d ' ' -f 6)"
+	ui="$(tail -n 1 "${HOME}/.xinitrc" | cut -d ' ' -f 2)"
 	uitype='WM'
 elif [ -f "${HOME}/.xsession" ]; then
-	ui="$(tail -n 1 "${HOME}/.xsession" | cut -d ' ' -f 6)"
+	ui="$(tail -n 1 "${HOME}/.xsession" | cut -d ' ' -f 2)"
 	uitype='WM'
 else
 	ui='unknown'
@@ -58,13 +56,12 @@ fi
 # you can change these
 lc="${reset}${bold}${blue}"         # labels
 nc="${reset}${bold}${blue}"         # user and hostname
-ic="${reset}${bold}${white}"        # info
-c0="${reset}${bold}${blue}"         # first color
+ic="${reset}"                       # info
+c0="${reset}${blue}"                # first color
 
 ## OUTPUT
 
 cat <<EOF
-
 ${c0}        /\\         ${nc}${USER}${ic}@${nc}${host}${reset}
 ${c0}       /  \\        ${lc}OS:        ${ic}${os}${reset}
 ${c0}      /\\   \\       ${lc}KERNEL:    ${ic}${kernel}${reset}
@@ -72,5 +69,4 @@ ${c0}     /  __  \\      ${lc}UPTIME:    ${ic}${uptime}${reset}
 ${c0}    /  (  )  \\     ${lc}PACKAGES:  ${ic}${packages}${reset}
 ${c0}   / __|  |__\\\\    ${lc}SHELL:     ${ic}${shell}${reset}
 ${c0}  /.\`        \`.\\   ${lc}${uitype}:        ${ic}${ui}${reset}
-
 EOF
