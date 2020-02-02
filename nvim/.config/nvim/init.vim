@@ -186,9 +186,6 @@ let g:bullets_enable_file_type =['markdown','text','gitcommit','*']             
 "rainbow
 let g:rainbow_active = 1
 
-"Clang stuff
-let g:clang_format#code_sytle="$HOME/.config/nvim/clang/llvm"
-
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
     let col = col('.') - 1
