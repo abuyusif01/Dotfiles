@@ -23,11 +23,11 @@ then
     fi
     # mute the audio if an ad is playing(too broke for premium now)
     if [[ $ARTIST = "" ]]; then
-        $(pamixer --mute)
-    else 
-        $(pamixer --unmute)
+        $(pactl set-sink-mute 0 1)
+    else
+        $(pactl set-sink-mute 0 0)
     fi
-    
+
 else
-    echo " "
+    echo ""
 fi
