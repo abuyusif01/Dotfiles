@@ -170,16 +170,20 @@ Print + shift
 
 #rofi green cipboard
 super + v
-    rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}' -font "Fira Code 14"
+    rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}' -font "Fira Code 10"
 
 # spotify Stuff
 super + s
     spotify --disable-gpu
 
 # typora
-super + t
+super + shift + t
     typora
 
 # telegram
-super + e
+super + t
     telegram-desktop
+
+# Spotify
+super + s
+    spotify
