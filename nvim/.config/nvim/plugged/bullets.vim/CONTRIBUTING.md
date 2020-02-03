@@ -1,4 +1,0 @@
-- Fork the project
-- Create feature branch
-- Make your feature addition or bug fix
-- Submit a pull request

@@ -24,6 +24,9 @@ flameshot &
 # GreenClip
 greenclip daemon &
 
+# SmartCharging
+SmartCharging &
+
 # start redshift
 redshift -t 6500:4600 -l 3.2476811:101.74012689999999 &
 
@@ -53,6 +56,7 @@ bspc config pointer_action3 resize_corner
 
 # some window rules
 bspc rule -a Typora desktop='^4' follow=on focus=focus=on
+bspc rule -a Spotify desktop='^5' follow=on focus=focus=on
 bspc rule -a TelegramDesktop desktop='^3' follow=on focus=focus=on
 bspc rule -a Brave-browser desktop='^2' follow=on focus=on
 bspc rule -a feh state=floating follow=on

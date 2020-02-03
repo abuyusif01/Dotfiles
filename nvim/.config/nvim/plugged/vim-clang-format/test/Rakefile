@@ -1,8 +1,0 @@
-task :test do
-  sh 'bundle install --path=.bundle'
-  sh 'bundle exec vim-flavor test'
-end
-
-task :watch do
-  sh 'guard -w ..'
-end
