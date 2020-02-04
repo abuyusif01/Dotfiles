@@ -6,12 +6,12 @@
 > - tmux >= version 2.2
 
 
-## **Fonts**
+## **Fonts and Icons**
 
 > - FiraCode
 > - Font Awesome
-> - Ubuntu Family
-> - Hack
+> - Material Icons
+> - SansMonoDroid (icons)
 
 
 ## **Installation**
