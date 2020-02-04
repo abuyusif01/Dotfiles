@@ -208,7 +208,7 @@ function sp-help {
 
 function sp-lyrics {
   # uses a script to search or lyrics. 
-  sh ~/bin/lyrics.sh spotify
+  sh ~/.config/bin/lyrics.sh spotify
 }
 function sp-search {
   # Searches for tracks, plays the first result.
