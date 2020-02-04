@@ -12,7 +12,7 @@ modulefg-alt = #f7f7f7
 
 
 [bar/main]
-monitor = eDP-1
+monitor = eDP1
 dpi = 192
 include-file = ~/.config/polybar/fullbar
 background = ${color.bground}
@@ -31,7 +31,7 @@ modules-right = Playing temp battery volume backlight wifi weather date
 type = custom/script
 exec = ~/.config/bin/playing.sh
 format-prefix = " "
-interval = 0.1
+interval = 0
 label-font = 0
 click-left = sp play
 format-padding = 1
@@ -80,8 +80,9 @@ ramp-volume-2 =
 [module/backlight]
 type = custom/script
 exec = ~/.config/bin/light.sh
-scroll-up = exec light -A 5
-scroll-down = exec light -U 5
+scroll-up = exec xbacklight + 5
+scroll-down = exec xbacklight - 5
+update-interval = 1
 format-prefix = "| "
 label = "%output% |"
 
