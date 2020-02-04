@@ -15,7 +15,7 @@ super + @space
     exec $HOME/.config/bin/rofi_run
 
 super + i
-    exec rofi -modi "clipboard:greenclip print" -show clipboard -font "Fira Code 14"
+    exec rofi -modi "clipboard:greenclip print" -show clipboard -font "Fira Code 10"
 
 #dmenu_run
 alt + @space
@@ -25,15 +25,43 @@ alt + @space
 super + shift + r
     pkill -USR1 -x sxhkd
 
-#spotify next
-super + ctrl + l
+
+####################### Function Keys############################3
+
+# system volume increase with 10%
+XF86AudioRaiseVolume
+    pactl -- set-sink-volume 0 +5%
+
+# system volume decrease with 10%
+XF86AudioLowerVolume
+    pactl -- set-sink-volume 0 -5%
+
+
+# Brightness This tooks me ages to get it works Lol
+XF86MonBrightnessDown
+    xbacklight - 5
+
+# Brightness Decrease with 5
+XF86MonBrightnessUp
+    xbacklight + 5
+
+# Play
+XF86AudioPlay
+    sp play
+
+# Mute Sound
+XF86AudioMute
+    pactl set-sink-mute 0 1
+
+# Next Song
+XF86AudioNext
     sp next
 
-#spotify prev
-super + ctrl + h
+# Prev Song
+ XF86AudioPrev
     sp prev
 
-#spotify play
+# spotify play
 super + Home
     sp play
 
@@ -41,19 +69,22 @@ super + Home
 super + Delete
     systemctl suspend
 
-#sometimes i hate zsh-auto-suggestion
-#super + ctrl + Delete
-#   clean_history
+# Disable TouchPad
+XF86TouchpadToggle
+    xinput disable 15
 
-#system volume increase with 10%
-super + ctrl + k
-    pactl -- set-sink-volume 0 +10%
+# Enable TouchPad
+F3
+    xinput enable 15
 
-#system volume decrease with 10%
-super + ctrl + j
-    pactl -- set-sink-volume 0 -10%
+# Enable Click At Startup
+super + shift + XF86TouchpadToggle
+    xinput set-prop 15 314 1
 
-# quit bspwm normally
+################### END SECTION FUNCTION KEYS #####################
+
+
+# quit bspwm noramally
 super + x
     rofi_run -l
 
@@ -187,3 +218,5 @@ super + t
 # Spotify
 super + s
     spotify
+
+
