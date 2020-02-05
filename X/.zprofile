@@ -11,7 +11,8 @@ path=(
 # Set the default Less options.
 # Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
 # Remove -X and -F (exit if the content fits on one screen) to enable it.
-export LESS='-F -g -i -M -R -S -w -X -z-4'
+#export LESS='-F -g -i -M -R -S -w -z-4'
+export ZDOTDIR="$HOME/.config/zsh/rc"
 
 # Set the Less input preprocessor.
 # Try both `lesspipe` and `lesspipe.sh` as either might exist on a system.
@@ -22,11 +23,11 @@ fi
 server=$(ps -e | grep -i xorg)
 if [ -z "$server" ]; then
     startx
-    xset r rate 200 50
     wmname compiz
     export EDITOR='nvim'
     export VISUAL='nvim'
     export PAGER='less'
 else
+    xset r rate 200 50
     echo "X is running at `ps -e |grep -i xorg|awk '{print$2}'`"
 fi
