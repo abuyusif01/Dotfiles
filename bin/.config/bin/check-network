@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-#wconnected=""
-#econnected=""
+wconnected=""
+econnected=""
 connected="$(nmcli | grep -w 'connected\|available' | awk '{print $2}')"
 wifi_id=$(nmcli | grep "wlp6s0" | awk '{print $4}')
 ether_id=$(nmcli | grep "enp7s0" | awk '{print $4}')
@@ -9,9 +9,9 @@ if [[ $connected = *"connected"* ]]
     then
     if test -z "$ether_id"
     then
-        echo "$wifi_id"
+        echo "$wifi_id $wconnected"
     else
-        echo "$ether_id"
+        echo "$ether_id $econnected"
     fi
 else
     echo "Not Connected"
