@@ -1,0 +1,11 @@
+#!/bin/bash
+
+property=$1
+mouseId=`xinput list | grep -i "Touchpad" | awk '{print$6}' | grep -o "[1-9].*"`
+propName=`xinput list-props $mouseId | grep -iE "tapping Enabled\ \(" | awk '{print$4}'| grep -Eio "[1-9]*"`
+
+if [ -z $1 ]; then
+    property=1
+fi
+
+xinput set-prop $mouseId $propName $property
