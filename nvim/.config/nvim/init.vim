@@ -241,3 +241,12 @@ nnoremap <C-l> <C-w>l
 " select text via ctrl+shift+arrows in insert mode
 inoremap <C-S-left> <esc>vb
 inoremap <C-S-right> <esc>ve
+
+let g:clang_format#style_options = {
+    \ "AccessModifierOffset" : -4,
+    \ "AllowShortIfStatementsOnASingleLine" : "true",
+    \ "AlwaysBreakTemplateDeclarations" : "true",
+    \ "Standard" : "C++11",
+    \ "IndentWidth" : 4,
+    \ "ColumnLimit" : 200}
+let g:clang_format#code_style = "WebKit"
