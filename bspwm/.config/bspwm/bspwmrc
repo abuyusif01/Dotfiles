@@ -12,6 +12,8 @@ sxhkd &
 # wallpaper
 $HOME/.config/bin/wallpaper &
 
+# Enable Click
+$HOME/.config/bin/AutoClick
 # picom
 picom -C -b
 
