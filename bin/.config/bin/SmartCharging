@@ -6,16 +6,13 @@ count=0;
 while true; do
     battery=$(cat /sys/class/power_supply/BAT0/capacity)
     power=`grep -o "[0-1]" /sys/class/power_supply/AC/uevent`
+
     if [[ $power -eq 1 && $count -eq 0 ]]; then
         count=1;
         notify-send -t 3000 "Charge Plugin $battery%"
         sleep 1s
-        if [[ $battery -eq 100 ]]; then
-            notify-send -u critical -t 0 "Battery Fully charged 🔋"
-            sleep 2s
-            continue;
-        fi
     fi
+
     if [[ $power -eq 0 && $count -eq 1 ]]; then
         count=0
         notify-send -t 3000 "Charge Removed $battery%"
@@ -25,14 +22,13 @@ while true; do
             sleep 2m
             continue;
         fi
-
         if [ $battery -eq 20 ]; then
             notify-send -u critical -t 3000 "$battery% Remain"
             sleep 2m
             continue;
         fi
-
     fi
+
     if [[ $battery -lt 10 && $power -eq 0 ]]; then
         notify-send -u critical -t 3000 "15s Going to Sleep baby 😪"
         sleep 15s
@@ -44,5 +40,12 @@ while true; do
         systemctl suspend;
         continue;
     fi
+
+    if [[ $battery -eq 100 && $power -eq 1 ]]; then
+        notify-send -u critical -t 0 "Battery Fully charged 🔋"
+        sleep 5s
+        continue;
+    fi
+
     sleep 3s
 done
