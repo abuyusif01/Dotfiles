@@ -5,7 +5,11 @@ source $HOME/.config/zsh/Plugins/fast/fast-string-highlight
 export PATH=$PATH:$HOME/.config/bin
 export PATH=$PATH:/opt/jdk-13.0.1/bin
 
+<<<<<<< HEAD
 HISTFILE=~/.local/share/kitty/history.kitty
+=======
+HISTFILE=~/.config/zsh/.cache/history
+>>>>>>> 37a136c4b7de4b9bf8f238ea849876a70fc557bd
 HISTSIZE=10000000000
 SAVEHIST=10000000000
 setopt appendhistory
