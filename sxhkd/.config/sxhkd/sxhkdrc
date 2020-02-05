@@ -78,7 +78,7 @@ F3
     xinput enable 15
 
 # Enable Click At Startup
-super + shift + XF86TouchpadToggle
+super + F3
     xinput set-prop 15 314 1
 
 ################### END SECTION FUNCTION KEYS #####################

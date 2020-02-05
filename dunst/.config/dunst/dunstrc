@@ -188,3 +188,7 @@
     foreground = "#ffffff"
     timeout = 5
 
+# Play sound with there's a notification
+[play_sound]
+    summary = "*"
+    script = /home/blackdracula/.config/bin/notification.sh

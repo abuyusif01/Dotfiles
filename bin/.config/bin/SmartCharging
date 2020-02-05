@@ -27,23 +27,22 @@ while true; do
         fi
 
         if [ $battery -eq 20 ]; then
-            notify-send -u critical -t 0 "$battery$ Remain"
+            notify-send -u critical -t 3000 "$battery% Remain"
             sleep 2m
             continue;
         fi
 
-        if [ $battery -lt 10 ]; then
-            notify-send -u critical -t 3000 "30s Going to Sleep baby 😪"
-            sleep 30s
-            power=`grep -o "[0-1]" /sys/class/power_supply/AC/uevent`
-            echo $power
-            if [[ $power -eq 1 ]]; then
-                notify-send -t 3000 "Good boi You Pluged The Charge"
-                continue;
-            fi
-            systemctl suspend;
+    fi
+    if [[ $battery -lt 10 && $power -eq 0 ]]; then
+        notify-send -u critical -t 3000 "15s Going to Sleep baby 😪"
+        sleep 15s
+        power=`grep -o "[0-1]" /sys/class/power_supply/AC/uevent`
+        if [[ $power -eq 1 ]]; then
+            notify-send -t 3000 "Good boi You Pluged The Charge"
             continue;
         fi
+        systemctl suspend;
+        continue;
     fi
     sleep 3s
 done
