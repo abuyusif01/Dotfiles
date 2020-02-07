@@ -13,8 +13,8 @@ Plug 'cj/vim-webdevicons'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'desmap/ale-sensible' | Plug 'w0rp/ale'
 Plug 'prettier/vim-prettier', {
-            \ 'do': 'yarn install',
-            \ 'for': ['javascript', 'css', 'less', 'scss', 'json',  'markdown',  'yaml', 'html'] }
+    \ 'do': 'yarn install',
+    \ 'for': ['javascript', 'css', 'less', 'scss', 'json',  'markdown',  'yaml', 'html'] }
 
 " markdown
 Plug 'dkarter/bullets.vim'                              " markdown bullet lists
@@ -91,7 +91,6 @@ set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab autoindent          
 set incsearch ignorecase smartcase hlsearch             " highlight text while seaching
 set list listchars=trail:»,tab:»-                       " use tab to navigate in list mode
 set fillchars+=vert:\▏                                  " requires a patched nerd font (try furaCode)
-set wrap breakindent                                    " wrap long lines to the width sset by tw
 set encoding=utf-8                                      " text encoding
 set number                                              " enable numbers on the left
 set number relativenumber                               " relative numbering to current line (current like is 0 )
@@ -120,8 +119,7 @@ let g:airline_powerline_fonts = 0
 let g:airline#themes#clean#palette = 1
 call airline#parts#define_raw('linenr', '%l')
 call airline#parts#define_accent('linenr', 'bold')
-let g:airline_section_z = airline#section#create(['%3p%%  ',
-            \ g:airline_symbols.linenr .' ', 'linenr', ':%c '])
+let g:airline_section_z = airline#section#create(['%3p%%  ', g:airline_symbols.linenr .' ', 'linenr', ':%c '])
 let g:airline_section_warning = ''
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'        " show only file name on tabs
@@ -152,24 +150,24 @@ highlight clear SignColumn                              " use number color for s
 
 " list of the extensions required
 let g:coc_global_extensions = [
-            \'coc-yank',
-            \'coc-highlight',
-            \'coc-prettier',
-            \'coc-pairs',
-            \'coc-json',
-            \'coc-css',
-            \'coc-html',
-            \'coc-tsserver',
-            \'coc-yaml',
-            \'coc-lists',
-            \'coc-snippets',
-            \'coc-python',
-            \'coc-xml',
-            \'coc-word',
-            \'coc-syntax',
-            \'coc-emoji',
-            \'coc-git',
-            \]
+    \'coc-yank',
+    \'coc-highlight',
+    \'coc-prettier',
+    \'coc-pairs',
+    \'coc-json',
+    \'coc-css',
+    \'coc-html',
+    \'coc-tsserver',
+    \'coc-yaml',
+    \'coc-lists',
+    \'coc-snippets',
+    \'coc-python',
+    \'coc-xml',
+    \'coc-word',
+    \'coc-syntax',
+    \'coc-emoji',
+    \'coc-git',
+    \]
 
 " indentLine
 let g:indentLine_char = '▏'
@@ -183,7 +181,8 @@ let g:auto_save_silent = 1
 
 "checkbox && bullets
 let g:bullets_enable_file_type =['markdown','text','gitcommit','*']                   "i enable this shit for all file types
-"rainbow
+
+"rainbow parentesis
 let g:rainbow_active = 1
 
 " use <tab> for trigger completion and navigate to the next complete item
@@ -193,9 +192,11 @@ function! s:check_back_space() abort
 endfunction
 
 inoremap <silent><expr> <Tab>
-            \ pumvisible() ? "\<C-n>" :
-            \ <SID>check_back_space() ? "\<Tab>" :
-            \ coc#refresh()
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<Tab>" :
+    \ coc#refresh()
+
+" abbrev for markdown
 abbrev ** ●
 
 " the essentials
@@ -216,8 +217,8 @@ inoremap jj <ESC>
 inoremap xx <ESC>:ToggleCheckbox<CR>
 
 " use a different buffer for dd
-nnoremap d "_d
-vnoremap d "_d
+"nnoremap d "_d
+"vnoremap d "_d
 
 " emulate windows copy, cut behavior
 noremap <LeftRelease> "+y<LeftRelease>
@@ -242,6 +243,7 @@ nnoremap <C-l> <C-w>l
 inoremap <C-S-left> <esc>vb
 inoremap <C-S-right> <esc>ve
 
+" Clang Stuff
 let g:clang_format#style_options = {
     \ "AccessModifierOffset" : -4,
     \ "AllowShortIfStatementsOnASingleLine" : "true",
@@ -250,3 +252,4 @@ let g:clang_format#style_options = {
     \ "IndentWidth" : 4,
     \ "ColumnLimit" : 200}
 let g:clang_format#code_style = "WebKit"
+let g:clang_format#auto_format = 1

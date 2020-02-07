@@ -12,7 +12,7 @@ setopt appendhistory
 bindkey -v
 
 #some nice looking shit
-#ufetch
+$HOME/.config/bin/ufetch
 
 [ -f $HOME/.config/zsh/Plugins/fzf.zsh ] && source ~$HOME/.config/zsh/Plugins/fzf.zsh
 

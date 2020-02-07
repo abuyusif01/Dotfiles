@@ -9,4 +9,5 @@ if [ -z $1 ]; then
 fi
 
 xinput set-prop $mouseId $propName $property
+xset r rate 250 40
 exit
