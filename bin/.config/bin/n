@@ -1,0 +1,5 @@
+alias n="tmux bind-key -n Home send Escape OH && tmux bind-key -n End send Escape OF && nvim $1 && tmux unbind -n Home && tmux unbind -n End"
+
+n
+
+
