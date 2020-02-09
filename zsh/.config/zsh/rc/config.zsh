@@ -9,7 +9,6 @@ alias free="free -h"
 alias cat="bat " # this one is way better
 alias ls="alias ls=lsd && ls"
 alias clip='xclip -selection clipboard'
-alias n="nvim"
 alias home="cd&&clear"
 alias suspend="systemctl suspend"
 alias scan="nmcli d wifi rescan"
