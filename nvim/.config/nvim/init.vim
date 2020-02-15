@@ -11,7 +11,8 @@ Plug 'cj/vim-webdevicons'
 
 "coc lang server and those shit
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'desmap/ale-sensible' | Plug 'w0rp/ale'
+"Plug 'desmap/ale-sensible' | Plug 'w0rp/ale'
+Plug 'vim-syntastic/syntastic'
 Plug 'prettier/vim-prettier', {
     \ 'do': 'yarn install',
     \ 'for': ['javascript', 'css', 'less', 'scss', 'json',  'markdown',  'yaml', 'html'] }
@@ -31,6 +32,7 @@ Plug 'honza/vim-snippets'                               " actual snippets
 Plug 'jiangmiao/auto-pairs'                             " auto insert other paranthesis pairb
 Plug 'Yggdroot/indentLine'                              " show indentation lines
 Plug 'chrisbra/Colorizer'                               " show actual colors of color codes
+Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'google/vim-searchindex'                           " add number of found matching search items
 
 " languages
@@ -152,19 +154,16 @@ highlight clear SignColumn                              " use number color for s
 let g:coc_global_extensions = [
     \'coc-yank',
     \'coc-highlight',
-    \'coc-prettier',
     \'coc-pairs',
     \'coc-json',
     \'coc-css',
-    \'coc-html',
-    \'coc-tsserver',
+    \'coc-html'
     \'coc-yaml',
     \'coc-lists',
     \'coc-snippets',
     \'coc-python',
     \'coc-xml',
     \'coc-word',
-    \'coc-syntax',
     \'coc-emoji',
     \'coc-git',
     \]
@@ -253,3 +252,11 @@ let g:clang_format#style_options = {
     \ "ColumnLimit" : 200}
 let g:clang_format#code_style = "WebKit"
 let g:clang_format#auto_format = 1
+
+" disable ale for c and cpp
+"let g:ale_linters = {'c': []}
+"let g:ale_linters = {'cpp': 'clang'}
+"let g:ale_linters = {'cpp': ['clang', 'clangtidy']}
+
+" disable ale and now using syntastic
+let g:syntastic_cpp_config_file = '.config'
