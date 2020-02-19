@@ -14,10 +14,12 @@ modulefg-alt = #f7f7f7
 [bar/main]
 monitor = eDP1
 dpi = 192
+width = 100%
+height = 22
 include-file = ~/.config/polybar/fullbar
 background = ${color.bground}
 foreground = ${color.fground}
-overline-size = 2
+overline-size = 0
 overline-color = ${color.accent}
 modules-left = workspaces title
 modules-center =
