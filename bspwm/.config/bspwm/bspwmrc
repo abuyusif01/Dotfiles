@@ -37,14 +37,13 @@ redshift -t 6500:4600 -l 3.2476811:101.74012689999999 &
 bspc monitor -d I II III IV V VI VII VIII
 
 bspc config border_width 0
-bspc config window_gap 2
-bspc config top_padding 26
+bspc config window_gap 0
+bspc config top_padding 23
 bspc config right_padding 0
 bspc config bottom_padding 0
 bspc config left_padding 0
-bspc config border_radius 5
 bspc config focused_border_color "#5c889c"
-bspc config border_width 1
+
 bspc config split_ratio 0.5
 bspc config borderless_monocle false
 bspc config gapless_monocle true
@@ -59,7 +58,6 @@ bspc config pointer_action3 resize_corner
 
 # some window rules
 bspc rule -a Typora desktop='^4' follow=on focus=focus=on
-bspc rule -a Spotify desktop='^5' follow=on focus=focus=on
 bspc rule -a TelegramDesktop desktop='^3' follow=on focus=focus=on
 bspc rule -a Brave-browser desktop='^2' follow=on focus=on
 bspc rule -a feh state=floating follow=on
