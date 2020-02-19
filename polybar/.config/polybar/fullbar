@@ -1,7 +1,3 @@
-width                    = 1361
-height                   = 22
-radius                   = 7
-line-size                = 0
 bottom                   = false
 cursor-click = pointer
 wm-restack = bspwm
@@ -20,13 +16,13 @@ font-5 = FontAwesome:size=5:antialias=true;2
 font-6 = "Font Awesome 5:style=Regular:size=5:antialias=true;2"
 
 override-redirect = true
-offset-x = 3
-offset-y = 3
+offset-x = 0
+offset-y = 0
 screenchange-reload      = true
 throttle-output          = 3
 throttle-output-for      = 7
 throttle-input-for       = 20
-padding-left             = 0
-padding-right            = 0
+padding-left             = 1
+padding-right            = 1
 module-margin-left       = 1
 module-margin-right      = 1
