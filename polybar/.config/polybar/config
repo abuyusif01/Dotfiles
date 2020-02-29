@@ -82,8 +82,8 @@ ramp-volume-2 =
 [module/backlight]
 type = custom/script
 exec = ~/.config/bin/light.sh
-scroll-up = exec xbacklight + 5
-scroll-down = exec xbacklight - 5
+scroll-up = exec light -A 5
+scroll-down = exec light -U 5
 update-interval = 1
 format-prefix = "| "
 label = "%output% |"
