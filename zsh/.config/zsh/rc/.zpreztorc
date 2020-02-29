@@ -43,4 +43,4 @@ zstyle ':prezto:module:tmux:auto-start' local 'yes'
 zstyle ':prezto:module:tmux:session' name 'S1'
 
 # behavior.
-zstyle ':prezto:module:utility' safe-ops 'no'g
+zstyle ':prezto:module:utility' safe-ops 'yes'g
