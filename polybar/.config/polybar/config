@@ -22,11 +22,12 @@ foreground = ${color.fground}
 overline-size = 0
 overline-color = ${color.accent}
 modules-left = workspaces title
-modules-center =
+modules-center = downspeed upspeed
 modules-right = Playing temp battery volume backlight wifi weather date
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;temp, battery, sound, light, wifi, time, weather, time
+;;RIGHT SIDE BAR
+;;playing, temp, battery, volume, backlight, connectivity, weather, time&date
 
 
 [module/Playing]
@@ -67,13 +68,13 @@ animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
-; Framerate in milliseconds
+;Framerate in milliseconds
 animation-charging-framerate = 750
 
 [module/volume]
 type = internal/alsa
 format-volume =| <ramp-volume> <label-volume>
-format-muted = 0%
+format-muted = | 0% 
 ramp-volume-0 =
 ramp-volume-1 =
 ramp-volume-2 =
@@ -90,13 +91,16 @@ label = "%output% |"
 
 
 [module/wifi]
+internal = 3.0
 type = internal/network
-interface =wlp6s0
-format-connected =<label-connected>
-label-connected-foreground = ${color.dunno}
-label-connected =""
-format-disconnected =<label-disconnected>
-label-disconnected =not connected
+interface = wlp6s0
+upspeed-minwidth = 5
+accumulate-stats = true
+unknown-as-up = true
+label-connected = %essid%
+format-disconnected = <label-disconnected>
+format-connected = <label-connected>
+label-disconnected = not connected
 
 
 [module/eth]
@@ -130,6 +134,24 @@ format-padding = 1
 label = " %title%"
 label-maxlen = 30
 label-empty = " Arch Linux"
+
+
+[module/downspeed]
+type = internal/network
+interface = wlp6s0
+upspeed-minwidth = 5
+accumulate-stats = true
+unknown-as-up = true
+label-connected = %downspeed% 
+
+
+[module/upspeed]
+type = internal/network
+interface = wlp6s0
+upspeed-minwidth = 5
+accumulate-stats = true
+unknown-as-up = true
+label-connected = %upspeed%
 
 
 [module/workspaces]
