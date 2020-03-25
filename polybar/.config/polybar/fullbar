@@ -1,4 +1,4 @@
-bottom                   = false
+bottom = false
 cursor-click = pointer
 wm-restack = bspwm
 
