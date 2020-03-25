@@ -37,7 +37,7 @@ unclutter -idle 2 &
 redshift -t 6500:4600 -l 3.2476811:101.74012689999999 &
 
 # Set some bspc specific stuff
-bspc monitor -d I II III IV V VI VII VIII
+bspc monitor -d I II III IV V VI
 
 bspc config border_width 0
 bspc config window_gap 0
