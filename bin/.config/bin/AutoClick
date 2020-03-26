@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 property=$1
 mouseId=`xinput list | grep -i "Touchpad" | awk '{print$6}' | grep -o "[1-9].*"`
@@ -9,5 +9,7 @@ if [ -z $1 ]; then
 fi
 
 xinput set-prop $mouseId $propName $property
+xinput --set-prop $mouseId 'libinput Accel Speed' 1
 xset r rate 250 40
+
 exit
