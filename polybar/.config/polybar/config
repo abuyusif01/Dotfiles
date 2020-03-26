@@ -94,7 +94,6 @@ label = "%output% |"
 internal = 3.0
 type = internal/network
 interface = wlp6s0
-upspeed-minwidth = 5
 accumulate-stats = true
 unknown-as-up = true
 label-connected = %essid%
@@ -105,7 +104,7 @@ label-disconnected = not connected
 
 [module/eth]
 type = internal/network
-interface =enp7s0
+interface = enp7s0
 format-connected =<label-connected>
 label-connected-foreground = ${color.dunno}
 label-connected ="| "
