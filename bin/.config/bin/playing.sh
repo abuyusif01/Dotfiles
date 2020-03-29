@@ -16,17 +16,10 @@ then
             awk -F 'string "' '/string|array/ {printf "%s",$2; next}{print ""}' |\
             awk -F '"' '/title/ {print $2}' | sed -e 's/([^()]*)//g' | cut -c 1-20 )
 
-    if [[ $STATUS = "Playing" ]]; then
-    echo "$SONG BY $ARTIST"
-    else
-    echo "$SONG BY $ARTIST"
-    fi
+    [ "$STATUS" = "Playing" ] && echo "$SONG BY $ARTIST" || echo "$SONG BY $ARTIST"
+
     # mute the audio if an ad is playing(too broke for premium now)
-    if [[ $ARTIST = "" ]]; then
-        $(pactl set-sink-mute 0 1)
-    else
-        $(pactl set-sink-mute 0 0)
-    fi
+    [ -z "$ARTIST" ] &&`pactl set-sink-mute 0 1` || `pactl set-sink-mute 0 0;`
 
 else
     echo ""
