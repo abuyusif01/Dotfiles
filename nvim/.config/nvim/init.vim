@@ -23,6 +23,7 @@ Plug 'dkarter/bullets.vim'                              " markdown bullet lists
 " search
 Plug 'wsdjeg/FlyGrep.vim'                               " project wide search
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'yuki-ycino/fzf-preview.vim'                       " Some smart ass fzf window preview
 Plug 'junegunn/fzf.vim'                                " fuzzy search integration
 
 " snippets
