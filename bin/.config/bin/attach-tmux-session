@@ -1,0 +1,11 @@
+#!/bin/sh
+
+tmux has-session -t "S1" 2> /dev/null
+
+if [ $? != 0 ]; then
+    tmux new-session -s "S1"
+    exit
+fi
+tmux detach
+tmux attach-session -t "S1"
+
