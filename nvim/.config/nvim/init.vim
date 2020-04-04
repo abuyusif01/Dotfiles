@@ -50,7 +50,8 @@ Plug '907th/vim-auto-save'                              " auto save changes
 Plug 'mhinz/vim-startify'                               " cool start up screen
 Plug 'lambdalisue/suda.vim'                             " save as sudo
 Plug 'tpope/vim-fugitive'                               " git support
-Plug 'tpope/vim-surround'                               " surround stuff with stuff
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-surround'                               " surroud stuff with stuff
 Plug 'psliwka/vim-smoothie'                             " some very smooth ass scrolling
 Plug 'farmergreg/vim-lastplace'                         " open files at the last edited place
 Plug 'tpope/vim-eunuch'                                 " run common unix commands inside vim
