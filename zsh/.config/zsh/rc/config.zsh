@@ -2,12 +2,14 @@ if type ag &> /dev/null; then
     export FZF_DEFAULT_COMMAND='ag --hidden -p ~/.fignore -g ""'
 fi
 
-VISUAL=nvim; export VISUAL EDITOR=nvim; export EDITOR
+export VISUAL=nvim; export EDITOR=nvim
+export PATH=$PATH:$HOME/.config/bin
+export PATH=$PATH:/opt/jdk-13.0.1/bin
 
 # various aliases.
 alias free="free -h"
 alias cat="bat " # this one is way better
-alias ls="alias ls=lsd && ls"
+alias ls="lsd"
 alias clip='xclip -selection clipboard'
 alias home="cd&&clear"
 alias suspend="systemctl suspend"
@@ -16,6 +18,7 @@ alias list="nmcli d wifi list"
 alias ch="cd; cat /dev/null >! .zhistory"
 alias temp="System_temp.sh"
 alias cc="ls -lah"
+alias n=nvim
 
 #packages aliases.
 alias remove="yay -Rs"

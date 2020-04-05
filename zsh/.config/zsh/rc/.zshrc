@@ -1,23 +1,31 @@
+export ZSH=$HOME/.oh-my-zsh
+export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r$reset_color? [Yes, No, Abort, Edit] "
+
+
+ZSH_THEME="bubblified"
+source $HOME/.oh-my-zsh/oh-my-zsh.sh
 source $HOME/.config/zsh/rc/config.zsh
 source $HOME/.config/zsh/Plugins/fast/fast-syntax-highlighting.plugin.zsh
-source $HOME/.config/zsh/Plugins/fast/fast-string-highlight
-
-export PATH=$PATH:$HOME/.config/bin
-export PATH=$PATH:/opt/jdk-13.0.1/bin
+source $HOME/.config/zsh/Plugins/zsh-auto/zsh-autosuggestions.zsh
 
 HISTFILE=~/.local/share/kitty/history.kitty
 HISTSIZE=10000000000
-SAVEHIST=10000000000
+SAVEHIST=1000000000
+
 setopt appendhistory
-bindkey -v
+setopt correct
+#bindkey -v
 
 #some nice looking shit
 $HOME/.config/bin/ufetch
 
-[ -f $HOME/.config/zsh/Plugins/fzf.zsh ] && source ~$HOME/.config/zsh/Plugins/fzf.zsh
+#TIMEFMT=$'\n================\nCPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E'
 
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+#[ -f $HOME/.config/zsh/Plugins/fzf.zsh ] && source ~$HOME/.config/zsh/Plugins/fzf.zsh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+ # source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+#fi
+
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
