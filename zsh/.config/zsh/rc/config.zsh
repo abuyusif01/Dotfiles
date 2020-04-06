@@ -30,7 +30,6 @@ alias cleanc="yay -Scc" # clean cached packages files.
 # git aliases.
 alias gs="git status"
 alias ga="git add"
-alias gc="git commit --signoff"
 alias gcp="git cherry-pick"
 alias gl="git log | bat"
 alias gd="git diff"
@@ -39,3 +38,5 @@ alias clone="git clone"
 alias gb="git branch -a"
 alias gco="git checkout"
 alias gbd="git branch -d "
+alias gc="git commit --verbose --signoff"
+alias gp="git push"
