@@ -38,11 +38,11 @@ XF86AudioLowerVolume
 
 # Brightness This tooks me ages to get it works Lol
 XF86MonBrightnessDown
-    xbacklight - 5
+    light -A 5
 
 # Brightness Decrease with 5
 XF86MonBrightnessUp
-    xbacklight + 5
+    light -U 5
 
 # Play
 XF86AudioPlay
