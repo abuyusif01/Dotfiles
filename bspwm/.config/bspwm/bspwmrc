@@ -4,7 +4,7 @@
 xsetroot -cursor_name left_ptr
 
 # start with terminal
-kitty &
+kitty -e $HOME/.config/bin/attach-tmux-session &
 
 # key bindings
 sxhkd &
