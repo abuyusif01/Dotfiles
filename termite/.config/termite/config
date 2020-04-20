@@ -59,7 +59,7 @@ browser = xdg-open
 #background = rgba(63, 63, 63, 0.8)
 
 # If unset, will reverse foreground and background
-highlight = #2f2f2f
+#highlight = #2f2f2f
 
 # Colors from color0 to color254 can be set
 color0 = #3f3f3f
@@ -133,8 +133,8 @@ browser = xdg-open
 #cursor = #dcdccc
 #cursor_foreground = #dcdccc
 
-foreground = #D8DEE9
-background = #0f111a
+#foreground = #D8DEE9
+#background = #0f111a
 #foreground = #dcdccc
 #foreground_bold = #ffffff
 #background = #3f3f3f
@@ -143,7 +143,7 @@ background = #0f111a
 #background = rgba(63, 63, 63, 0.8)
 
 # If unset, will reverse foreground and background
-highlight = #2f2f2f
+#highlight = #2f2f2f
 
 # Colors from color0 to color254 can be set
 color0 = #3f3f3f
@@ -165,8 +165,8 @@ color15 = #ffffff
 
 [hints]
 font = Fira Code 10
-foreground = #D8DEE9
-background = #0f111a
+#foreground = #D8DEE9
+#background = #0f111a
 #active_foreground = #e68080
 #active_background = #3f3f3f
 #padding = 2
