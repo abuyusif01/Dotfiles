@@ -19,6 +19,7 @@ alias ch="cd; cat /dev/null >! .zhistory"
 alias temp="System_temp.sh"
 alias cc="ls -lah"
 alias n=nvim
+alias du="du -sh"
 
 #packages aliases.
 alias remove="yay -Rs"
