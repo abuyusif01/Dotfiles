@@ -186,7 +186,7 @@ Print
     flameshot full -p $HOME/Screenshots/
 
 # flameshot gui
-Print + shift
+super + shift + p
     flameshot gui -p $HOME/Screenshots/clip
 
 #rofi green cipboard
