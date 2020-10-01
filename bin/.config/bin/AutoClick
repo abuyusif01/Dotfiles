@@ -10,6 +10,6 @@ fi
 
 xinput set-prop $mouseId $propName $property
 xinput --set-prop $mouseId 'libinput Accel Speed' 0.5
-xset r rate 250 40
+xset r rate 200 35
 
 exit
