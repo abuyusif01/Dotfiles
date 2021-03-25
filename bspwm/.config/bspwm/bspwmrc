@@ -20,6 +20,8 @@ picom -C -b
 
 # panel
 polybar main &
+polybar network &
+polybar date_and_time &
 
 # flameshot
 flameshot &
@@ -28,7 +30,7 @@ flameshot &
 greenclip daemon &
 
 # SmartCharging
-SmartCharging &
+# SmartCharging &
 
 # unclutter (hides mouse while typing)
 unclutter -idle 2 &
@@ -40,8 +42,9 @@ redshift -t 6500:4600 -l 3.2476811:101.74012689999999 &
 bspc monitor -d I II III IV V VI
 
 bspc config border_width 0
-bspc config window_gap 0
-bspc config top_padding 22
+bspc config window_gap 5
+bspc config top_padding 25
+bspc config border_radius 8
 bspc config right_padding 0
 bspc config bottom_padding 0
 bspc config left_padding 0
