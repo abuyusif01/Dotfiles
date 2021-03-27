@@ -1,8 +1,8 @@
 export ZSH=$HOME/.oh-my-zsh
 export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r$reset_color? [Yes, No, Abort, Edit] "
 
-ZSH_THEME="bubblified"
-source $HOME/.oh-my-zsh/oh-my-zsh.sh
+#ZSH_THEME="bubblified"
+#source $HOME/.oh-my-zsh/oh-my-zsh.sh
 source $HOME/.config/zsh/rc/config.zsh
 source $HOME/.config/zsh/Plugins/fast/fast-syntax-highlighting.plugin.zsh
 source $HOME/.config/zsh/Plugins/zsh-auto/zsh-autosuggestions.zsh
@@ -27,10 +27,11 @@ setopt correct
 #$HOME/.config/bin/ufetch
 
 
-#[ -f $HOME/.config/zsh/Plugins/fzf.zsh ] && source ~$HOME/.config/zsh/Plugins/fzf.zsh
+[ -f $HOME/.config/zsh/Plugins/fzf.zsh ] && source ~$HOME/.config/zsh/Plugins/fzf.zsh
 
-#if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
- # source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-#fi
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
 
-#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+alias ls=lsd
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
