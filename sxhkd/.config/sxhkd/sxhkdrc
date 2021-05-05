@@ -1,27 +1,27 @@
 # web browser
-alt + w
-    brave
+super + w
+    chromium
 
 #terinal emulator
-alt + Return
+super + Return
     kitty -e $HOME/.config/bin/attach-tmux-session
 
 # file manager
-alt + f kitty -e ranger
+super + f kitty -e ranger
 
 # program launcher
-alt + @space
+super + @space
     exec $HOME/.config/bin/rofi_run
 
-alt + i
+super + i
     exec rofi -modi "clipboard:greenclip print" -show clipboard -font "Fira Code 10"
 
 #dmenu_run
-alt + ctrl @space
+super + ctrl @space
     dmenu_run -fn FiraCode
 
 # make sxhkd reload its configuration files:
-alt + shift + r
+super + shift + r
     pkill -USR1 -x sxhkd
 
 
@@ -61,11 +61,11 @@ XF86AudioPrev
     sp prev
 
 # spotify play
-alt + Home
+super + Home
     sp play
 
 #systemctl suspend
-alt + Delete
+super + Delete
     systemctl suspend
 
 # Disable TouchPad
@@ -77,22 +77,22 @@ F3
     xinput enable 15
 
 # Enable Click At Startup
-alt + F3
+super + F3
     xinput set-prop 15 314 1
 
 ################### END SECTION FUNCTION KEYS #####################
 
 
 # quit bspwm noramally
-alt + x
+super + shift + x
     rofi_run -l
 
 # close and kill
-alt + {_,shift + }q
+super + {_,shift + }q
     bspc node -{c,k}
 
-# alternate between the tiled and monocle layout
-alt + shift + z
+# superernate between the tiled and monocle layout
+super + shift + z
     if [ -z "$(bspc query -N -n focused.floating)" ]; then \
         bspc node focused -t floating; \
     else \
@@ -100,68 +100,68 @@ alt + shift + z
     fi
 
 # if the current node is automatic, send it to the last manual, otherwise pull the last leaf
-alt + y
+super + y
     bspc query -N -n focused.automatic && bspc node -n last.!automatic || bspc node last.leaf -n focused
 
 # swap the current node and the biggest node
-alt + g
+super + g
     bspc node -s biggest
 #
 # state/flags
 #
 
 # set the window state
-alt + shift + {t,shift + t,s,f}
+super + shift + {t,shift + t,s,f}
     bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags 
-alt + ctrl + {x,y,z}
+super + ctrl + {x,y,z}
     bspc node -g {locked,sticky,private} 
 #
 # focus/swap
 #
 # focus the node in the given direction 
-alt + {_,shift + }{h,j,k,l}
+super + {_,shift + }{h,j,k,l}
     bspc node -{f,s} {west,south,north,east}
 
 # focus the node for the given path jump
-alt + {p,b,comma,period}
+super + {p,b,comma,period}
     bspc node -f @{parent,brother,first,second}
 
 # focus the next node in the screen left/right
-alt + ctrl {_,shift } + h
+super + ctrl {_,shift } + h
     bspc node -f {next,prev}.local
 
 # focus the next/previous desktop in the current monitor
-alt + bracket{left,right}
+super + bracket{left,right}
     bspc desktop -f {next}.local
 
 # focus the last node/desktop
-alt + {grave,Tab}
+super + {grave,Tab}
     bspc {node,desktop} -f last
 
 # focus the older or newer node in the focus history
-alt + {o,i}
+super + {o,i}
     bspc wm -h off; \
     bspc node {older,newer} -f; \
     bspc wm -h on
 
 # focus or send to the given desktop
-alt + {_,shift + }{1-9,0}
+super + {_,shift + }{1-9,0}
     bspc {desktop -f,node -d} '^{1-9,10}'
 
 # preselect preselect the direction 
-alt + ctrl + {h,j,k,l} 
+super + ctrl + {h,j,k,l} 
     bspc node -p {west,south,north,east}
 
 # preselect the ratio 
-alt + ctrl + {1-9} bspc node -o 0.{1-9}
+super + ctrl + {1-9} bspc node -o 0.{1-9}
 
 # cancel the preselection for the focused node 
-alt + ctrl + space bspc node -p cancel
+super + ctrl + space bspc node -p cancel
 
 # cancel the preselection for the focused desktop
-alt + ctrl + shift + space
+super + ctrl + shift + space
     bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
 #
@@ -169,19 +169,19 @@ alt + ctrl + shift + space
 #
 
 # expand a window by moving one of its side outward 
-alt + alt + {h,j,k,l}
+super + super + {h,j,k,l}
     bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
 # contract a window by moving one of its side inward
-ctrl + alt + {h,j,k,l}
+ctrl + super + {h,j,k,l}
     bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
 # move a floating window
-alt + {Left,Down,Up,Right}
+super + {Left,Down,Up,Right}
     bspc node -v {-5 0,0 5,0 -5,5 0}
 
 # move a floating window fast lol
-alt + shift + ctrl {Left,Down,Up,Right}
+super + shift + ctrl {Left,Down,Up,Right}
     bspc node -v {-30 0,0 30,0 -30,30 0}
 
 
@@ -190,21 +190,21 @@ Print
     flameshot full -p $HOME/Screenshots/
 
 # flameshot gui
-alt + shift + p
+super + shift + p
     flameshot gui -p $HOME/Screenshots/clip
 
 #rofi green cipboard
-alt + v
+super + v
     rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}' -font "Fira Code 10"
 
 # spotify Stuff
-alt + s
+super + s
     spotify --disable-gpu
 
 # typora
-alt + shift + t
+super + shift + t
     typora
 
 # telegram
-alt + t
+super + t
     telegram-desktop
