@@ -14,4 +14,10 @@ fi
 [ -r ~/.Xmodmap ] && xmodmap ~/.Xmodmap
 [ -r ~/.Xresources ] && xrdb -merge ~/.Xresources
 [ -r ~/.xprofile ] && . ~/.xprofile
-exec bspwm
+
+if [ `whoami` = "blackdracula-plasma" ]; then
+    export DESKTOP_SESSION=plasma
+    exec startplasma-x11
+else
+    exec bspwm
+fi
