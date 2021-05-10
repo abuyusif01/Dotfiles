@@ -11,42 +11,59 @@ modulefg = #f7f7f7
 modulefg-alt = #f7f7f7
 
 
-[bar/main]
+[settings]
 monitor = eDP1
-dpi = 192
-width = 100%
-height = 22
-include-file = ~/.config/polybar/fullbar
+monitor-strict = false
+override-redirect = true
+wm-restack = bspwm
+bottom = false
+height = 23
+fixed-center = true
+offset-y = 3
+radius= 10
+cursor-click = pointer
+tray-position = none
+module-margin-left = 1
+module-margin-right= 1
 background = ${color.bground}
 foreground = ${color.fground}
-overline-size = 0
-overline-color = ${color.accent}
-modules-left = workspaces title
-modules-center = downspeed upspeed
-modules-right = Playing temp battery volume backlight wifi weather date
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;RIGHT SIDE BAR
-;;playing, temp, battery, volume, backlight, connectivity, weather, time&date
+font-0 = Fira Code:size=9:antialias=true;2
+font-1 = unifont:fontformat=truetype:size=9:antialias=true;1
+font-2 = "MaterialIcons:size=9:antialias=true;2"
+font-3 = "icomoon-extended-ultra:size=9:antialias=true;2"
+font-4 = "Fira Code:size=9:antialias=true;2"
+font-5 = "FontAwesome:size=9:antialias=true;2"
+font-6 = "Font Awesome 5:style=Regular:size=9:antialias=true;2"
 
 
-[module/Playing]
-type = custom/script
-exec = ~/.config/bin/playing.sh
-format-prefix = " "
-interval = 0
-label-font = 0
-click-left = sp play
-format-padding = 1
+
+[bar/main]
+inherit = settings
+width = 18.33%
+offset-x = 5
+modules-left = workspaces
 
 
-[module/temp]
-type = custom/script
-exec = ~/.config/bin/System_temp.sh
-format-prefix = "  "
-label = %output%
-format-prefix-foreground = ${color.red}
+[bar/date_and_time]
+inherit = settings
+width = 18.55%
+offset-x = 81%
+modules-right = volume backlight battery date
 
+
+[bar/network]
+inherit = settings
+width = 18.55%
+offset-x = 40%
+modules-center = upspeed downspeed 
+
+
+[bar/calender]
+inherit = settings
+width = 18.55%
+offset-x = 81%
+offset-y = 20
+modules-right = wifi
 
 [module/battery]
 type = internal/battery
@@ -54,9 +71,9 @@ battery = BAT0
 adapter = AC90
 poll-interval = 0
 ;;ramp-capacity-foreground = ${color.dunno}
-format-discharging = | <ramp-capacity> <label-discharging>
-format-full =| <ramp-capacity> <label-full>
-format-charging =| <animation-charging> <label-charging>
+format-discharging =  <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+format-charging = <animation-charging> <label-charging>
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
@@ -71,24 +88,6 @@ animation-charging-4 = 
 ;Framerate in milliseconds
 animation-charging-framerate = 750
 
-[module/volume]
-type = internal/alsa
-format-volume =| <ramp-volume> <label-volume>
-format-muted = | 0% 
-ramp-volume-0 =
-ramp-volume-1 =
-ramp-volume-2 =
-
-
-[module/backlight]
-type = custom/script
-exec = ~/.config/bin/light.sh
-scroll-up = exec light -A 5
-scroll-down = exec light -U 5
-update-interval = 1
-format-prefix = "| "
-label = "%output% |"
-
 
 [module/wifi]
 internal = 3.0
@@ -101,38 +100,32 @@ format-disconnected = <label-disconnected>
 format-connected = <label-connected>
 label-disconnected = not connected
 
-
-[module/eth]
-type = internal/network
-interface = enp7s0
-format-connected =<label-connected>
-label-connected-foreground = ${color.dunno}
-label-connected ="| "
-format-disconnected =<label-disconnected>
-label-disconnected =not connected
+[module/volume]
+type = internal/alsa
+format-volume = <ramp-volume> <label-volume>
+format-muted =0% 
+ramp-volume-0 =
+ramp-volume-1 =
+ramp-volume-2 =
 
 
-[module/weather]
+[module/backlight]
 type = custom/script
-exec = ~/.config/bin/weather.sh
-format-prefix = "| "
-label = %output%
+exec = ~/.config/bin/light.sh
+scroll-up = exec light -A 5
+scroll-down = exec light -U 5
+update-interval = 1
+format-prefix = " "
+label = "%output%"
 
 
 [module/date]
 type = internal/date
 time = %H:%M
 time-alt = %a %d %b
-label ="| %time% "
-
-
-[module/title]
-type = internal/xwindow
-format = <label>
-format-padding = 1
-label = " %title%"
-label-maxlen = 40
-label-empty = " Arch Linux"
+format-background = ${color.dunno}
+format-foreground = ${color.fground}
+label =" %time% "
 
 
 [module/downspeed]
@@ -156,8 +149,6 @@ label-connected = %upspeed%
 [module/workspaces]
 type = internal/bspwm
 pin-workspaces = false
-enable-click = true
-enable-scroll = true
 format = <label-state>
 format-background = ${color.shade1}
 format-foreground = ${color.shade1}
@@ -170,3 +161,4 @@ label-focused-padding = 1
 label-urgent-padding = 1
 label-occupied-padding = 1
 label-empty-padding = 1
+
