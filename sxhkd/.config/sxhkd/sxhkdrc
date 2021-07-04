@@ -4,8 +4,7 @@ super + w
 
 #terinal emulator
 super + Return
-    kitty -e $HOME/.config/bin/attach-tmux-session
-
+    kitty
 # file manager
 super + f kitty -e ranger
 
@@ -27,23 +26,23 @@ super + shift + r
 
 ####################### Function Keys############################3
 
-# system volume increase with 10%
+ #system volume increase with 10%
 XF86AudioRaiseVolume
     pactl -- set-sink-volume 0 +5%
-
+#
 # system volume decrease with 10%
 XF86AudioLowerVolume
     pactl -- set-sink-volume 0 -5%
 
 
-# Brightness This tooks me ages to get it works Lol
-XF86MonBrightnessDown
-    light -A 5
-
-# Brightness Decrease with 5
-XF86MonBrightnessUp
-    light -U 5
-
+## Brightness This tooks me ages to get it works Lol
+#XF86MonBrightnessDown
+#    light -A 5
+#
+## Brightness Decrease with 5
+#XF86MonBrightnessUp
+#    light -U 5
+#
 # Play
 XF86AudioPlay
     sp play
@@ -61,8 +60,8 @@ XF86AudioPrev
     sp prev
 
 # spotify play
-super + Home
-    sp play
+#super + Home
+#    sp play
 
 #systemctl suspend
 super + Delete
@@ -110,17 +109,14 @@ super + g
 # state/flags
 #
 
-# set the window state
-super + shift + {t,shift + t,s,f}
-    bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+# basically what i use all the time
+super + {w,f,s,t}
+    {brave,dolphin,spotify,typora}
 
-# set the node flags 
-super + ctrl + {x,y,z}
-    bspc node -g {locked,sticky,private} 
 #
 # focus/swap
 #
-# focus the node in the given direction 
+# focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
     bspc node -{f,s} {west,south,north,east}
 
@@ -129,8 +125,8 @@ super + {p,b,comma,period}
     bspc node -f @{parent,brother,first,second}
 
 # focus the next node in the screen left/right
-super + ctrl {_,shift } + h
-    bspc node -f {next,prev}.local
+#super + {_,shift } + Tab
+#    bspc node -f {next,prev}.local
 
 # focus the next/previous desktop in the current monitor
 super + bracket{left,right}
@@ -141,7 +137,7 @@ super + {grave,Tab}
     bspc {node,desktop} -f last
 
 # focus the older or newer node in the focus history
-super + {o,i}
+super + {o}
     bspc wm -h off; \
     bspc node {older,newer} -f; \
     bspc wm -h on
@@ -149,43 +145,11 @@ super + {o,i}
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
     bspc {desktop -f,node -d} '^{1-9,10}'
+#make current window fullscreen
+super + {F11,F10}
+    bspc node --state {fullscreen, tiled}
 
-# preselect preselect the direction 
-super + ctrl + {h,j,k,l} 
-    bspc node -p {west,south,north,east}
-
-# preselect the ratio 
-super + ctrl + {1-9} bspc node -o 0.{1-9}
-
-# cancel the preselection for the focused node 
-super + ctrl + space bspc node -p cancel
-
-# cancel the preselection for the focused desktop
-super + ctrl + shift + space
-    bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
-
-#
-# move/resize 
-#
-
-# expand a window by moving one of its side outward 
-super + super + {h,j,k,l}
-    bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
-
-# contract a window by moving one of its side inward
-ctrl + super + {h,j,k,l}
-    bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
-
-# move a floating window
-super + {Left,Down,Up,Right}
-    bspc node -v {-5 0,0 5,0 -5,5 0}
-
-# move a floating window fast lol
-super + shift + ctrl {Left,Down,Up,Right}
-    bspc node -v {-30 0,0 30,0 -30,30 0}
-
-
-# flameshot full screen
+#Screenshots
 Print
     flameshot full -p $HOME/Screenshots/
 
@@ -193,18 +157,3 @@ Print
 super + shift + p
     flameshot gui -p $HOME/Screenshots/clip
 
-#rofi green cipboard
-super + v
-    rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}' -font "Fira Code 10"
-
-# spotify Stuff
-super + s
-    spotify --disable-gpu
-
-# typora
-super + shift + t
-    typora
-
-# telegram
-super + t
-    telegram-desktop
