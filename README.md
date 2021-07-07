@@ -9,9 +9,9 @@
 ## **Fonts and Icons**
 
 > - FiraCode
-> - Font Awesome
-> - Material Icons
-> - SansMonoDroid (icons)
+> - JetBrain
+> - Apple SanFransiscoDisplay
+> - Windows 10 Fonts
 
 
 ## **Installation**
