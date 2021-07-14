@@ -10,7 +10,7 @@ kitty -e $HOME/.config/bin/attach-tmux-session &
 sxhkd &
 
 # wallpaper
-$HOME/.config/bin/wallpaper &
+#$HOME/.config/bin/wallpaper &
 
 # Enable Click
 $HOME/.config/bin/AutoClick
@@ -64,6 +64,5 @@ bspc config pointer_action3 resize_corner
 
 # some window rules
 bspc rule -a Typora desktop='^4' follow=on focus=focus=on
-bspc rule -a TelegramDesktop desktop='^3' follow=on focus=focus=on
 bspc rule -a Brave-browser desktop='^2' follow=on focus=on
 bspc rule -a feh state=floating follow=on
