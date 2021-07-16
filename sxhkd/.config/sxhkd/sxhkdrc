@@ -9,7 +9,7 @@ super + @space
     $HOME/.config/bin/rofi_run
 
 super + i
-    exec rofi -modi "clipboard:greenclip print" -show clipboard -font "Fira Code 09" -run-command '{cmd}'
+    rofi -modi "clipboard:greenclip print" -show clipboard -font "Fira Code 09" -run-command '{cmd}'
 
 #dmenu_run
 super + ctrl @space
