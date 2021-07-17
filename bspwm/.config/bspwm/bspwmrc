@@ -27,7 +27,7 @@ polybar date_and_time &
 flameshot &
 
 # GreenClip
-greenclip daemon &
+greenclip daemon & disown
 
 # SmartCharging
 # SmartCharging &
