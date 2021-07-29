@@ -17,5 +17,6 @@ fi
 
 dpkg -i lsd_0.20.1_amd64.deb
 sed -i "s/#Port 22/Port 443/g" /etc/ssh/sshd_config
+sed -i "s/#ClientAliveInterval 1200/ClientAliveInterval 10000000/g" /etc/ssh/sshd_config
 systemctl stop sshd
 systemctl start sshd
