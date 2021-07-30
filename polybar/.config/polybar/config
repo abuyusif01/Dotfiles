@@ -12,7 +12,8 @@ modulefg-alt = #f7f7f7
 
 
 [settings]
-monitor = eDP1
+master-mixer = IEC958
+monitor = eDP-1
 monitor-strict = false
 override-redirect = true
 wm-restack = bspwm
@@ -27,6 +28,7 @@ module-margin-left = 1
 module-margin-right= 1
 background = ${color.bground}
 foreground = ${color.fground}
+
 font-0 = Fira Code:size=9:antialias=true;2
 font-1 = unifont:fontformat=truetype:size=9:antialias=true;1
 font-2 = "MaterialIcons:size=9:antialias=true;2"
@@ -34,8 +36,6 @@ font-3 = "icomoon-extended-ultra:size=9:antialias=true;2"
 font-4 = "Fira Code:size=9:antialias=true;2"
 font-5 = "FontAwesome:size=9:antialias=true;2"
 font-6 = "Font Awesome 5:style=Regular:size=9:antialias=true;2"
-
-
 
 [bar/main]
 inherit = settings
@@ -55,7 +55,7 @@ modules-right = volume backlight battery date
 inherit = settings
 width = 18.55%
 offset-x = 40%
-modules-center = upspeed downspeed 
+modules-center = upspeed downspeed
 
 
 [bar/calender]
@@ -101,21 +101,24 @@ format-connected = <label-connected>
 label-disconnected = not connected
 
 [module/volume]
-type = internal/alsa
-format-volume = <ramp-volume> <label-volume>
-format-muted =0% 
-ramp-volume-0 =
-ramp-volume-1 =
-ramp-volume-2 =
+master-mixer = IEC958
+type = custom/script
+exec = $HOME/.config/bin/sound.sh
+scroll-up = exec pactl set-set-sink-volume 0 +10%
+scroll-down = exec pactl set-set-sink-volume 0 -10%
+click-left = exec pactl set-sink-mute @DEFAULT_SINK@ true
+click-right = exec pactl set-sink-mute @DEFAULT_SINK@ false
+update-interval = 1
+label = "%output%"
 
 
 [module/backlight]
 type = custom/script
 exec = ~/.config/bin/light.sh
-scroll-up = exec light -A 5
-scroll-down = exec light -U 5
+scroll-up = exec xbacklight -inc 10
+scroll-down = exec xbacklight -dec 10
 update-interval = 1
-format-prefix = " "
+format-prefix = "☼"
 label = "%output%"
 
 
@@ -134,7 +137,7 @@ interface = wlp6s0
 upspeed-minwidth = 5
 accumulate-stats = true
 unknown-as-up = true
-label-connected = %downspeed% 
+label-connected = ↓ %downspeed%
 
 
 [module/upspeed]
@@ -143,7 +146,7 @@ interface = wlp6s0
 upspeed-minwidth = 5
 accumulate-stats = true
 unknown-as-up = true
-label-connected = %upspeed%
+label-connected = %upspeed% ↑
 
 
 [module/workspaces]
