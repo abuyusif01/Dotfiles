@@ -14,6 +14,8 @@ git clone https://github.com/maurosoria/dirsearch /opt/dirsearch
 
 #dpkg -i lsd_0.20.1_amd64.deb
 echo "Port 443" >> /etc/ssh/sshd_config
-#sed -i "s/#ClientAliveInterval 1200/ClientAliveInterval 10000000/g" /etc/ssh/sshd_config
+echo "ClientAliveInterval 720" >> /etc/ssh/sshd_config
+echo "ClientAliveCountMax 3" >> /etc/ssh/sshd_config
+
 systemctl stop sshd
 systemctl start sshd
