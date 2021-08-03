@@ -1,0 +1,11 @@
+# Nmap 7.60 scan initiated Tue Aug  3 08:42:48 2021 as: nmap -p- -T5 -Pn -oN cmspit/nmap/all_port 10.10.196.217
+Warning: 10.10.196.217 giving up on port because retransmission cap hit (2).
+Nmap scan report for ip-10-10-196-217.eu-west-1.compute.internal (10.10.196.217)
+Host is up (0.00046s latency).
+Not shown: 65533 closed ports
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+MAC Address: 02:88:C9:5D:AB:43 (Unknown)
+
+# Nmap done at Tue Aug  3 08:53:04 2021 -- 1 IP address (1 host up) scanned in 616.08 seconds
