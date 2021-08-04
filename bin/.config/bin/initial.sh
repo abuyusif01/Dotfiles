@@ -39,10 +39,11 @@ function configure_sshd()
 
 	echo -en "==> ${green}[+]${nc} Stopping sshd"; for i in 1 2; do echo -en "."; sleep 0.3s; done;
 	systemctl stop sshd > /dev/null 2>&1; echo ".";
-	echo -en "==> ${green}[+]${nc} editing sshd files"; echo -ne ".";
+	echo -en "==> ${green}[+]${nc} Appending sshd config"; echo -ne ".";
 	echo "Port 443" >> /etc/ssh/sshd_config; echo -ne ".";
-	echo "ClientAliveInterval 720" >> /etc/ssh/sshd_config; echo -ne ".";
-	echo "ClientAliveCountMax 3" >> /etc/ssh/sshd_config; echo  ".";
+	echo "ClientAliveInterval 60" >> /etc/ssh/sshd_config; echo -ne ".";
+	echo "TCPKeepAlive yes" >> /etc/ssh/sshd_config; echo -en ".";
+	echo "ClientAliveCountMax 10000" >> /etc/ssh/sshd_config; echo  ".";
 	echo -en "==> ${green}[+]${nc} Startting sshd"; echo -ne "."; sleep 0.3s; echo -ne ".";
 	systemctl start sshd; echo ".";
 }
@@ -72,7 +73,7 @@ function clean_up()
 
 download_files
 configure_zsh
-bash -c 'yes | ~/.fzf/install' > /dev/null 2>&1
+bash -c 'yes | ~/.fzf/install' > /dev/null 2>&1 # stupid fzf
 configure_sshd
 change_root_passwd
 install_local_files
