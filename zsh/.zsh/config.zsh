@@ -70,3 +70,9 @@ hash -d sig="$HOME/SigCyberSec"
 hash -d dev="$HOME/dev"
 hash -d azi="$HOME/connections/azilink"
 hash -d try="$HOME/connections/tryh4ckm3"
+
+# fzf alias
+
+alias prev="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
+
+
