@@ -37,13 +37,13 @@ alias status="systemctl status"
 alias reload="systemctl daemon-reload"
 
 
-# packages aliases.
-alias y="yay -Syu --noconfirm"
-alias remove="yay -Rds"
-alias install="yay -S"
-alias pinfo="yay -Qi " # get info of an installed package.
-alias orphan="yay -Rns $(pacman -Qtdq)" # remove orphaned packages.
-alias cleanc="yay -Scc" # clean cached packages files.
+# packages aliases. using debian based
+#alias y="yay -Syu --noconfirm"
+#alias remove="yay -Rds"
+#alias install="yay -S"
+#alias pinfo="yay -Qi " # get info of an installed package.
+#alias orphan="yay -Rns $(pacman -Qtdq)" # remove orphaned packages.
+#alias cleanc="yay -Scc" # clean cached packages files.
 
 # git aliases.
 alias gs="git status"
@@ -51,12 +51,12 @@ alias ga="git add"
 alias gaa="git add -A"
 alias gc="git commit --signoff"
 alias gcp="git cherry-pick"
-alias gl="git log | bat"
+alias gl="git log|bat"
 alias gr="git remote"
 alias gra="git remote add"
 alias grm="git remote rm"
 alias grv="git remote -v"
-alias gd="git diff"
+alias gd="git diff|bat"
 alias gpl="git pull"
 alias ngd="git diff --name-only | uniq | xargs nvim" # open files with conflicts in nvim
 alias gclean="git reflog expire --all --expire=now && git gc --prune=now --aggressive"
@@ -67,7 +67,6 @@ hash -d note="$HOME/SigCyberSec/pre-training"
 hash -d clip="$HOME/Screenshots/clip"
 hash -d shot="$HOME/Screenshots"
 hash -d sig="$HOME/SigCyberSec"
-hash -d git="$HOME/dev"
 hash -d dev="$HOME/dev"
 hash -d azi="$HOME/connections/azilink"
 hash -d try="$HOME/connections/tryh4ckm3"
