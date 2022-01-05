@@ -1,6 +1,6 @@
 #terinal emulator
 super + Return
-    kitty -e $HOME/.config/bin/attach-tmux-session
+ termite -e $HOME/.config/bin/attach-tmux-session
 # file manager
 super + f kitty -e ranger
 
@@ -105,8 +105,8 @@ super + g
 #
 
 # basically what i use all the time
-super + {w,f,s,t}
-    {brave,dolphin,spotify,typora}
+super + {w, f, s, t}
+    {brave, kitty -e ranger,spotify,typora}
 
 #
 # focus/swap

@@ -16,8 +16,9 @@ fi
 [ -r ~/.xprofile ] && . ~/.xprofile
 
 if [ `whoami` = "blackdracula-plasma" ]; then
-    export DESKTOP_SESSION=plasma
-    exec startplasma-x11
+#    export DESKTOP_SESSION=plasma
+#    exec startplasma-x11
+	exec bspwm
 else
-    exec bspwm
+	exec bspwm
 fi

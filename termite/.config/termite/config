@@ -21,7 +21,7 @@ font = Fira Code 10
 # and setting it to a negative value means "infinite scrollback"
 scrollback_lines = 10000
 #search_wrap = true
-#urgent_on_bell = true
+urgent_on_bell = true
 #hyperlinks = false
 
 # $BROWSER is used by default if set, with xdg-open as a fallback
@@ -56,7 +56,7 @@ browser = xdg-open
 #background = #3f3f3f
 
 # 20% background transparency (requires a compositor)
-#background = rgba(63, 63, 63, 0.8)
+background = #0f111a
 
 # If unset, will reverse foreground and background
 #highlight = #2f2f2f

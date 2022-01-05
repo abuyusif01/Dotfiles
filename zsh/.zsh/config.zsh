@@ -14,7 +14,7 @@ setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording en
 autoload -U compinit && compinit
 
 # ls colors
-eval $( dircolors -b $HOME/.dircolors )
+# eval $( dircolors -b $HOME/.dircolors )
 
 # determines search program for fzf
 if type rg &> /dev/null; then
@@ -35,15 +35,20 @@ alias start="systemctl start"
 alias stop="systemctl stop"
 alias status="systemctl status"
 alias reload="systemctl daemon-reload"
+alias list="nmcli d wifi list"
+function connect()
+{
+    nmcli d wifi connect $1
+}
 
 
-# packages aliases. using debian based
-#alias y="yay -Syu --noconfirm"
-#alias remove="yay -Rds"
-#alias install="yay -S"
-#alias pinfo="yay -Qi " # get info of an installed package.
-#alias orphan="yay -Rns $(pacman -Qtdq)" # remove orphaned packages.
-#alias cleanc="yay -Scc" # clean cached packages files.
+# packages aliases.
+alias y="yay -Syu --noconfirm"
+alias remove="yay -Rds"
+alias install="yay -S"
+alias pinfo="yay -Qi " # get info of an installed package.
+alias orphan="yay -Rns $(pacman -Qtdq)" # remove orphaned packages.
+alias cleanc="yay -Scc" # clean cached packages files.
 
 # git aliases.
 alias gs="git status"

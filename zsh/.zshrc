@@ -7,12 +7,17 @@ source $HOME/.zsh/functions.zsh
 
 
 # path changes
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/.config/bin:$PATH
+export PATH=/home/blackdracula/dev/flutter_dev/flutter/bin:$PATH
 export LANG="en_US.UTF-8"
 export PATH=$HOME/.local/bin:$PATH
 export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 export PATH="$PATH:$GEM_HOME/bin"
+#ANDROID_HOME=$HOME/Android/Sdk
+export CHROME_EXECUTABLE="/bin/brave-beta"
 
+export ANDROID_SDK=/opt/android-sdk
+export PATH=$ANDROID_SDK/emulator:$ANDROID_SDK/tools:$PATH
 # FZF bindings debian time
 #source /usr/share/fzf/key-bindings.zsh
 #source /usr/share/fzf/completion.zsh
