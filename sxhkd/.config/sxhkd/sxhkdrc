@@ -1,6 +1,6 @@
 #terinal emulator
 super + Return
- termite -e $HOME/.config/bin/attach-tmux-session
+ kitty -e $HOME/.config/bin/attach-tmux-session
 # file manager
 super + f kitty -e ranger
 
