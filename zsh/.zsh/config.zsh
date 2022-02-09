@@ -38,6 +38,7 @@ alias reload="systemctl daemon-reload"
 alias list="nmcli d wifi list"
 function connect()
 {
+    nmcli d wiif list;
     nmcli d wifi connect $1
 }
 
@@ -65,6 +66,7 @@ alias gd="git diff|bat"
 alias gpl="git pull"
 alias ngd="git diff --name-only | uniq | xargs nvim" # open files with conflicts in nvim
 alias gclean="git reflog expire --all --expire=now && git gc --prune=now --aggressive"
+alias clone="git clone"
 
 # Directory hashes.
 hash -d dots="$HOME/.dotfiles"
@@ -74,6 +76,7 @@ hash -d shot="$HOME/Screenshots"
 hash -d sig="$HOME/SigCyberSec"
 hash -d dev="$HOME/dev"
 hash -d azi="$HOME/connections/azilink"
+
 hash -d try="$HOME/connections/tryh4ckm3"
 
 # fzf alias
