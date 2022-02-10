@@ -106,7 +106,7 @@ super + g
 
 # basically what i use all the time
 super + {w, f, s, t}
-    {brave, kitty -e ranger,spotify,typora}
+    {brave-beta, kitty -e ranger,spotify,typora}
 
 #
 # focus/swap

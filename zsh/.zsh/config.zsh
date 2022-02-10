@@ -36,9 +36,11 @@ alias stop="systemctl stop"
 alias status="systemctl status"
 alias reload="systemctl daemon-reload"
 alias list="nmcli d wifi list"
+alias word="$HOME/ctf/thm/offensive_pentesting/resources/wordlist/"
+
 function connect()
 {
-    nmcli d wiif list;
+    nmcli d wifi list > /dev/null;
     nmcli d wifi connect $1
 }
 
@@ -76,7 +78,6 @@ hash -d shot="$HOME/Screenshots"
 hash -d sig="$HOME/SigCyberSec"
 hash -d dev="$HOME/dev"
 hash -d azi="$HOME/connections/azilink"
-
 hash -d try="$HOME/connections/tryh4ckm3"
 
 # fzf alias
