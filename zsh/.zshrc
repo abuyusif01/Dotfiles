@@ -9,6 +9,7 @@ export PATH=$HOME/.config/bin:$PATH
 export PATH=/home/blackdracula/dev/flutter_dev/flutter/bin:$PATH
 export LANG="en_US.UTF-8"
 export PATH=$HOME/.local/bin:$PATH
+export PATH=/opt/RsaCtfTool:$PATH
 export PATH=$HOME/.pub-cache/bin:$PATH
 export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 export PATH="$PATH:$GEM_HOME/bin"
