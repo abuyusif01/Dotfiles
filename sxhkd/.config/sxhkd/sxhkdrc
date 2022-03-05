@@ -153,5 +153,5 @@ Print
 
 # flameshot gui
 super + shift + p
-    flameshot gui -p $HOME/Screenshots/clip
+    flameshot gui
 

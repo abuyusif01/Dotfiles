@@ -19,9 +19,10 @@ $HOME/.config/bin/AutoClick
 picom -C -b
 
 # panel
-polybar main &
-polybar network &
-polybar date_and_time &
+# polybar main &
+# polybar network &
+# polybar date_and_time &
+bash ~/.config/polybar/launch.sh --forest
 
 # flameshot
 flameshot &
