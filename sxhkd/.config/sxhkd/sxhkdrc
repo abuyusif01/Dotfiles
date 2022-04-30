@@ -72,6 +72,14 @@ super + F3
 
 ################### END SECTION FUNCTION KEYS #####################
 
+# am poor
+
+super + e
+    echo "1111"|su root -c /opt/azilink/resources/start-azilink.sh
+
+
+super + n
+    echo "1111"|su root -c 'systemctl restart NetworkManager'
 
 # quit bspwm noramally
 super + x
