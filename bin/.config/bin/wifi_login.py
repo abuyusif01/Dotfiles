@@ -9,26 +9,28 @@ import argparse
 
 
 parser = argparse.ArgumentParser(
-    prog='wifi_login.py', usage="wifi_login.py [-h] [-H] [-I] [-R] [-i] [-N] [-p] [-c] [-E] [-x] [-r] [-m] [-e] [-g] [-n] [-v] [-A]")
-rhost = 'iiumwifilogin2.iium.edu.my'
-remote_addr = '10.10.10.10'   # get ur system addr using ip route
-url = 'iiumwifilogin2.iium.edu.my'
-route = '/guest/guest_register.php?_browser=1'
-gsid = ''  # can be anythihg
-visitor_name = ''  # ur name
-visitor_phone = ''  # ur phone number
-visitor_company = ''  # ur company
-email = ''  # email
-expire_after = '168'  # set how long u wanna use the wifi
-role_id = ''  # have no idea wtf is this
-mac = ''  # ur mac addr
-essid = ''  # have no idea
-apgroup = ''  # same shit
-apname = ''  # Lmao no idea
-vcname = ''  # fucking hell
+    prog="wifi_login.py",
+    usage="wifi_login.py [-h] [-H] [-I] [-R] [-i] [-N] [-p] [-c] [-E] [-x] [-r] [-m] [-e] [-g] [-n] [-v] [-A]",
+)
+rhost = "iiumwifilogin2.iium.edu.my"
+remote_addr = "10.10.10.10"  # get ur system addr using ip route
+url = "iiumwifilogin2.iium.edu.my"
+route = "/guest/guest_register.php?_browser=1"
+gsid = ""  # can be anythihg
+visitor_name = ""  # ur name
+visitor_phone = ""  # ur phone number
+visitor_company = ""  # ur company
+email = ""  # email
+expire_after = "168"  # set how long u wanna use the wifi
+role_id = ""  # have no idea wtf is this
+mac = ""  # ur mac addr
+essid = ""  # have no idea
+apgroup = ""  # same shit
+apname = ""  # Lmao no idea
+vcname = ""  # fucking hell
 # am guessing this will update the account after the timeout not sure tho
-auto_update_account = ''
-creator_accept_terms = ''  # terms and conditions
+auto_update_account = ""
+creator_accept_terms = ""  # terms and conditions
 
 
 def set_variables(args):
@@ -93,61 +95,101 @@ def set_variables(args):
 
 def get_host_info():
     global mac
-    mac = ':'.join(re.findall('..', '%012x' % uuid.getnode()))
+    mac = ":".join(re.findall("..", "%012x" % uuid.getnode()))
     global remote_addr
-    remote_addr = ifaddresses('wlp6s0').setdefault(AF_INET)[0]['addr']
+    remote_addr = ifaddresses("wlp6s0").setdefault(AF_INET)[0]["addr"]
 
 
 def get_cookies():
     global gsid
-    url = 'https://iiumwifilogin2.iium.edu.my/guest/guest_register_receipt.php'
+    url = "https://iiumwifilogin2.iium.edu.my/guest/guest_register_receipt.php"
     send = requests.get(url)
-    gsid = send.request.headers["Cookie"].replace('GSID=', '')
+    gsid = send.request.headers["Cookie"].replace("GSID=", "")
 
 
 def create_account():
-    url_create_account = 'https://iiumwifilogin2.iium.edu.my/guest/guest_register.php?_browser=1'
-    url_get_passwd = 'https://iiumwifilogin2.iium.edu.my/guest/guest_register_receipt.php'
+    url_create_account = (
+        "https://iiumwifilogin2.iium.edu.my/guest/guest_register.php?_browser=1"
+    )
+    url_get_passwd = (
+        "https://iiumwifilogin2.iium.edu.my/guest/guest_register_receipt.php"
+    )
     temp_gsid = "GSID=" + gsid
-    headers = {'Cookie': temp_gsid}
-    data = {'visitor_name': visitor_name, 'visitor_phone': visitor_phone, 'visitor_company': visitor_company,
-            'email': email, 'expire_after': expire_after, 'role_id': role_id,
-            'remote_addr': remote_addr, 'creator_accept_terms': creator_accept_terms}
-    requests.post(url=url_create_account, data=data,
-                  headers={"Cookie": temp_gsid})
+    # headers = {"Cookie": temp_gsid}
+    data = {
+        "visitor_name": visitor_name,
+        "visitor_phone": visitor_phone,
+        "visitor_company": visitor_company,
+        "email": email,
+        "expire_after": expire_after,
+        "role_id": role_id,
+        "remote_addr": remote_addr,
+        "creator_accept_terms": creator_accept_terms,
+    }
+    requests.post(url=url_create_account, data=data, headers={"Cookie": temp_gsid})
     upasswd = requests.get(url=url_get_passwd, headers={"Cookie": temp_gsid})
-    passwd = re.findall('\"\d{8}\"', upasswd.text)
-    return "".join(passwd).replace('"', '')
+    passwd = re.findall('"\d{8}"', upasswd.text)
+    return "".join(passwd).replace('"', "")
 
 
 def login():
-    url = 'http://captiveportalmahallahgombak.iium.edu.my/cgi-bin/login'
-    data = {'user': email, 'password': create_account(
-    ), 'cmd': 'authenticate', 'Login': 'Log In'}
+    url = "http://captiveportalmahallahgombak.iium.edu.my/cgi-bin/login"
+    data = {
+        "user": email,
+        "password": create_account(),
+        "cmd": "authenticate",
+        "Login": "Log In",
+    }
     requests.post(url=url, data=data)
 
 
-parser.add_argument('-H', '--rhost', metavar='\b',
-                    default="iium.edu.my", help='remote host (default: iium.edu.my)')
-parser.add_argument('-I', '--lhost', metavar='\b',
-                    default="10.10.10.10", help='machine ip address')
-parser.add_argument('-i', '--gsid', metavar='\b', help='Guest Cookie')
-parser.add_argument('-N', '--vname', metavar='\b', help='username')
-parser.add_argument('-p', '--vphone', metavar='\b', help='phone number')
-parser.add_argument('-c', '--vcomp', metavar='\b',
-                    help='company u wanna register under')
-parser.add_argument('-E', '--email', metavar='\b',
-                    help='email (default: guest@example.com)')
-parser.add_argument('-x', '--expire', metavar='\b',
-                    help="expiration time", type=int, default=1)
-parser.add_argument('-r', '--vrole', metavar='\b',
-                    help="idk wtf this does (default: 2)", type=int, default=2)
-parser.add_argument('-t', '--terms', metavar='\b',
-                    help="terms and conditions", type=int)
+parser.add_argument(
+    "-H",
+    "--rhost",
+    metavar="\b",
+    default="iium.edu.my",
+    help="remote host (default: iium.edu.my)",
+)
+parser.add_argument(
+    "-I", "--lhost", metavar="\b", default="10.10.10.10", help="machine ip address"
+)
+parser.add_argument("-i", "--gsid", metavar="\b", help="Guest Cookie")
+parser.add_argument("-N", "--vname", metavar="\b", help="username", default="guest")
+parser.add_argument(
+    "-p", "--vphone", metavar="\b", help="phone number", default="01129490011"
+)
+parser.add_argument(
+    "-c", "--vcomp", metavar="\b", help="company u wanna register under", default="uia"
+)
+parser.add_argument(
+    "-E",
+    "--email",
+    metavar="\b",
+    help="email (default: guest@example.com)",
+    default="guest@example.com",
+)
+parser.add_argument(
+    "-x", "--expire", metavar="\b", help="expiration time", type=int, default=1
+)  # expired after one day
+parser.add_argument(
+    "-r",
+    "--vrole",
+    metavar="\b",
+    help="idk wtf this does (default: 2)",
+    type=int,
+    default=2,
+)
+parser.add_argument(
+    "-t", "--terms", metavar="\b", help="terms and conditions", type=int, default=1
+)
 args = parser.parse_args()
 
 if len(sys.argv) == 1:
-    parser.print_help()
+    # parser.print_help()
+    print("No argument were parsed. we will be using the default values for now")
+    set_variables(args)
+    get_cookies()
+    login()
 else:
     set_variables(args)
     get_cookies()
