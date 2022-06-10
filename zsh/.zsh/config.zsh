@@ -71,17 +71,16 @@ alias gclean="git reflog expire --all --expire=now && git gc --prune=now --aggre
 alias clone="git clone"
 
 # Directory hashes.
-hash -d dots="$HOME/.dotfiles"
-hash -d note="$HOME/SigCyberSec/pre-training"
+hash -d dots="$HOME/.dots"
+hash -d note="$HOME/note"
 hash -d clip="$HOME/Screenshots/clip"
 hash -d shot="$HOME/Screenshots"
 hash -d sig="$HOME/SigCyberSec"
 hash -d dev="$HOME/dev"
-hash -d azi="$HOME/connections/azilink"
-hash -d try="$HOME/connections/tryh4ckm3"
+hash -d con="$HOME/connections"
+hash -d opt=/opt
 
 # fzf alias
-
 alias prev="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 
 
