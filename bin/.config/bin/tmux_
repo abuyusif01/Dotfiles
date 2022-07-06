@@ -1,1 +1,0 @@
-kitty -e $HOME/.config/bin/attach-tmux-session

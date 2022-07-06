@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# Connect to wifi from terminal
+function connect() {
+    nmcli d wifi list > /dev/null # Refreshing ssid list
+    nmcli d wifi connect $1
+}
+
+
