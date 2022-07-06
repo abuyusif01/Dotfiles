@@ -1,8 +1,0 @@
-{
-	"auth":{
-	"user": {
-	"$func":"var_dump"
-	},"password":[0]
-	},
-	"csfr":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjc2ZyIjoibG9naW4ifQ.dlnu8XjKIvB6mGfBlOgjtnixirAIsnzf5QTAEP1mJJc"
-}
