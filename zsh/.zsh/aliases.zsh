@@ -1,3 +1,10 @@
+# CTF aliases
+alias nc='function _nc(){ stty raw -echo (stty size; cat) | nc -nlvp $1 };_nc' # a trick to get everything working with nc, stole it from contpyshell
+
+# Connectivity aliases
+alias connect='function _connect(){ [[ -z $1 ]] && echo "SSID Must be given" && return -1 || echo -n "Connecting to $1"; nmcli d wifi list &> /dev/null; nmcli d wifi connect $1; [[ $? -eq 0 ]] && echo -n "Connection successfully"; return 0 ||  "Something went wrong!!!"; return -1 }; _connect' # I just hate using mouse
+alias list='nmcli d wifi list'
+
 # various aliases.
 alias zsh="exec zsh"
 alias n="nvim"
@@ -25,7 +32,7 @@ alias install="yay -S"
 alias pinfo="yay -Qi " # get info of an installed package.
 alias orphan="yay -Rns $(pacman -Qtdq)" # remove orphaned packages.
 alias cleanc="yay -Scc" # clean cached packages files.
-
+ 
 # git aliases.
 alias clone="git clone"
 alias gs="git status"
