@@ -33,7 +33,7 @@
 # regardless of functionargzero and posixargzero,
 # and with an option for a plugin manager to alter
 # the plugin directory (i.e. set ZERO parameter)
-# http://zdharma.org/Zsh-100-Commits-Club/Zsh-Plugin-Standard.html
+# https://zdharma-continuum.github.io/Zsh-100-Commits-Club/Zsh-Plugin-Standard.html
 0="${${ZERO:-${0:#$ZSH_ARGZERO}}:-${(%):-%N}}"
 0="${${(M)0:#/*}:-$PWD/$0}"
 
@@ -44,11 +44,14 @@ typeset -ga _FAST_MAIN_CACHE
 # are complex, i.e. e.g. part of "[[" in [[ ... ]]
 typeset -ga _FAST_COMPLEX_BRACKETS
 
-typeset -g FAST_WORK_DIR
-: ${FAST_WORK_DIR:=$FAST_BASE_DIR}
+typeset -g FAST_WORK_DIR=${FAST_WORK_DIR:-${XDG_CACHE_HOME:-~/.cache}/fast-syntax-highlighting}
+: ${FAST_WORK_DIR:=${FAST_BASE_DIR-}}
+# Expand any tilde in the (supposed) path.
 FAST_WORK_DIR=${~FAST_WORK_DIR}
 
-if [[ ${zsh_loaded_plugins[-1]} != */fast-syntax-highlighting && -z ${fpath[(r)${0:h}]} ]]
+# Last (currently, possibly) loaded plugin isn't "fast-syntax-highlighting"?
+# And FPATH isn't containing plugin dir?
+if [[ ${zsh_loaded_plugins[-1]-} != */fast-syntax-highlighting && -z ${fpath[(r)${0:h}]-} ]]
 then
     fpath+=( "${0:h}" )
 fi
@@ -249,7 +252,7 @@ _zsh_highlight_bind_widgets()
 
   local cur_widget
   for cur_widget in $widgets_to_bind; do
-    case $widgets[$cur_widget] in
+    case ${widgets[$cur_widget]-} in
 
       # Already rebound event: do nothing.
       user:_zsh_highlight_widget_*);;
@@ -276,7 +279,7 @@ _zsh_highlight_bind_widgets()
 
       # Incomplete or nonexistent widget: Bind to z-sy-h directly.
       *) 
-         if [[ $cur_widget == zle-* ]] && [[ -z $widgets[$cur_widget] ]]; then
+         if [[ $cur_widget == zle-* ]] && [[ -z ${widgets[$cur_widget]-} ]]; then
            _zsh_highlight_widget_${cur_widget}() { :; _zsh_highlight }
            zle -N -- $cur_widget _zsh_highlight_widget_$cur_widget
          else
@@ -315,7 +318,7 @@ add-zsh-hook preexec _zsh_highlight_preexec_hook 2>/dev/null || {
     print -r -- "$@" >>! /tmp/reply
 }
 
-ZSH_HIGHLIGHT_MAXLENGTH=10000
+typeset -g ZSH_HIGHLIGHT_MAXLENGTH=10000
 
 # Load zsh/parameter module if available
 zmodload zsh/parameter 2>/dev/null
@@ -363,11 +366,11 @@ alias fsh-alias=fast-theme
 if [[ ! -e $FAST_WORK_DIR/secondary_theme.zsh ]] {
     if { type curl &>/dev/null } {
         curl -fsSL -o "$FAST_WORK_DIR/secondary_theme.zsh" \
-            https://raw.githubusercontent.com/zdharma/fast-syntax-highlighting/master/share/free_theme.zsh \
+            https://raw.githubusercontent.com/zdharma-continuum/fast-syntax-highlighting/master/share/free_theme.zsh \
             &>/dev/null
     } elif { type wget &>/dev/null } {
         wget -O "$FAST_WORK_DIR/secondary_theme.zsh" \
-            https://raw.githubusercontent.com/zdharma/fast-syntax-highlighting/master/share/free_theme.zsh \
+            https://raw.githubusercontent.com/zdharma-continuum/fast-syntax-highlighting/master/share/free_theme.zsh \
             &>/dev/null
     }
     touch "$FAST_WORK_DIR/secondary_theme.zsh"
@@ -378,4 +381,4 @@ if [[ $(uname -a) = (#i)*darwin* ]] {
     FAST_HIGHLIGHT[chroma-man]=
 }
 
-[[ $COLORTERM == (24bit|truecolor) || ${terminfo[colors]} -eq 16777216 ]] || zmodload zsh/nearcolor &>/dev/null
+[[ ${COLORTERM-} == (24bit|truecolor) || ${terminfo[colors]} -eq 16777216 ]] || zmodload zsh/nearcolor &>/dev/null || true
