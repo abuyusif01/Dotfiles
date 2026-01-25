@@ -83,4 +83,3 @@ hash -d opt=/opt
 # fzf alias
 alias prev="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 
-
