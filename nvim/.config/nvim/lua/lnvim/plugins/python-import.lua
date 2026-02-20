@@ -72,8 +72,9 @@ return {
       ---@type table<string, string|vim.NIL>
       import_as = {
         -- These are the default values. Here for demonstration.
-        -- np = "numpy",
-        -- pd = "pandas",
+        np = "numpy",
+        pd = "pandas",
+        pl = "polars",
       },
 
       ---@type table<string, string|vim.NIL>

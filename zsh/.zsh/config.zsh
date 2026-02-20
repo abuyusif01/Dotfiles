@@ -45,13 +45,13 @@ function connect()
 }
 
 
-# packages aliases.
-alias y="yay -Syu --noconfirm"
-alias remove="yay -Rds"
-alias install="yay -S"
-alias pinfo="yay -Qi " # get info of an installed package.
-alias orphan="yay -Rns $(pacman -Qtdq)" # remove orphaned packages.
-alias cleanc="yay -Scc" # clean cached packages files.
+# # packages aliases.
+# alias y="yay -Syu --noconfirm"
+# alias remove="yay -Rds"
+# alias install="yay -S"
+# alias pinfo="yay -Qi " # get info of an installed package.
+# alias orphan="yay -Rns $(pacman -Qtdq)" # remove orphaned packages.
+# alias cleanc="yay -Scc" # clean cached packages files.
 
 # git aliases.
 alias gs="git status"

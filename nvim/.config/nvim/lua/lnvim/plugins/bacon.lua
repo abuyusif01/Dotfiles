@@ -1,5 +1,4 @@
 return {
-  -- other plugins
   {
     "Canop/nvim-bacon",
     config = function()
